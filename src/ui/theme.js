@@ -19,12 +19,19 @@ const theme = createTheme({
       main: `${diorioBlue}`,
     },
     error: {
-      color: "#B00020",
+      main: "#B00020",
     },
   },
   typography: {
+    tab: {
+      fontFamily: "Raleway",
+      textTransform: "none",
+      fontWeight: 700,
+      fontSize: "1rem",
+      color: "white",
+    },
     h1: {
-      color: diorioOrange,
+      color: diorioBlack,
     },
     h2: {
       color: diorioOrange,
@@ -39,21 +46,14 @@ const theme = createTheme({
       color: diorioGrey,
     },
   },
-});
-
-export const darkTheme = createTheme({
-  ...theme,
-  palette: {
-    ...theme.palette,
-    type: "dark",
-  },
-});
-
-export const lightTheme = createTheme({
-  ...theme,
-  palette: {
-    ...theme.palette,
-    type: "light",
+  overrides: {
+    MuiLink: {
+      underlineHover: {
+        "&:hover": {
+          textDecoration: "none",
+        },
+      },
+    },
   },
 });
 

@@ -3,6 +3,8 @@ import { createTheme } from "@material-ui/core/styles";
 const diorioOrange = "#C16200";
 const diorioBlue = "#00546E";
 const diorioGrey = "#4D4D4D";
+const diorioBlack = "#0F0F0F";
+const diorioWhite = "#EBEBEB";
 
 const theme = createTheme({
   palette: {
@@ -26,6 +28,9 @@ const theme = createTheme({
     },
     subtitle: {
       color: diorioGrey,
+    },
+    p : {
+      color: diorioBlack,
     },
     caption: {
       color: diorioGrey,

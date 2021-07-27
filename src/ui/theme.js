@@ -18,6 +18,9 @@ const theme = createTheme({
     secondary: {
       main: `${diorioBlue}`,
     },
+    error: {
+      color: "#B00020",
+    },
   },
   typography: {
     h1: {
@@ -29,12 +32,28 @@ const theme = createTheme({
     subtitle: {
       color: diorioGrey,
     },
-    p : {
+    p: {
       color: diorioBlack,
     },
     caption: {
       color: diorioGrey,
     },
+  },
+});
+
+export const darkTheme = createTheme({
+  ...theme,
+  palette: {
+    ...theme.palette,
+    type: "dark",
+  },
+});
+
+export const lightTheme = createTheme({
+  ...theme,
+  palette: {
+    ...theme.palette,
+    type: "light",
   },
 });
 

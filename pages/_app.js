@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
-import theme from "../src/ui/theme";
+import { darkTheme, lightTheme } from "../src/ui/theme";
 import Header from "../src/ui/Header";
 import Fonts from "../src/ui/Fonts";
+import useDarkMode from "use-dark-mode";
 import Footer from "../src/ui/Footer";
 
 export default function MyApp(props) {
@@ -12,6 +13,8 @@ export default function MyApp(props) {
   const [lifeIndex, setLifeIndex] = useState(0);
   const [value, setValue] = useState(0);
   const { Component, pageProps } = props;
+  const { value: isDark } = useDarkMode(true);
+  const themeConfig = isDark ? darkTheme : lightTheme;
 
   React.useEffect(() => {
     Fonts();
@@ -31,7 +34,7 @@ export default function MyApp(props) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={themeConfig}>
         <Header
           value={value}
           setValue={setValue}

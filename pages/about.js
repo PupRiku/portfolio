@@ -5,15 +5,13 @@ import Link from "../src/Link";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Grid from "@material-ui/core/Grid";
 
-export default function Index() {
+export default function About() {
   return (
     <Grid container>
       <Head>
-        <title key="title">
-          Chris Diorio - UX Designer and Front-End Developer
-        </title>
+        <title key="title">About Me | Chris Diorio</title>
       </Head>
-      <p>Home Page</p>
+      <p>About Me</p>
     </Grid>
   );
 }

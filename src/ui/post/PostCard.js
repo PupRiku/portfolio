@@ -1,4 +1,4 @@
-import Link from "../Link";
+import Link from "../../Link";
 import moment from "moment";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";

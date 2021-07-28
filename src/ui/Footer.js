@@ -3,7 +3,6 @@ import Link from "../Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
-import { findLastIndex } from "lodash";
 
 const useStyles = makeStyles(theme => ({
   footer: {

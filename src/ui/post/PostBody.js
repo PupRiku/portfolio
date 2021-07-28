@@ -3,10 +3,9 @@ import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { options } from "colorette";
 
 const useStyles = makeStyles(theme => ({
-  vatar: {
+  avatar: {
     width: "3em",
     height: "3em",
     boxShadow: "0px 0px 10px 1px #b2b2b28f",

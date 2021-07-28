@@ -31,10 +31,13 @@ const theme = createTheme({
       color: "white",
     },
     h1: {
-      color: diorioBlack,
+      color: diorioOrange,
     },
     h2: {
       color: diorioOrange,
+    },
+    h4: {
+      color: diorioBlue
     },
     subtitle: {
       color: diorioGrey,

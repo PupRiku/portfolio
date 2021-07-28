@@ -11,8 +11,8 @@ const useStyles = makeStyles(theme => ({
     height: "3em",
     boxShadow: "0px 0px 10px 1px #b2b2b28f",
   },
-  Container: {
-    maxWidth: "800px",
+  container: {
+    maxWidth: 800,
   },
 }));
 
@@ -31,7 +31,7 @@ const PostHeader = ({
     <Container className={classes.container}>
       <Grid container direction="column" spacing={3}>
         <Grid item>
-          <Typography variant="h2">{title}</Typography>
+          <Typography variant="h1">{title}</Typography>
         </Grid>
         <Grid item container wrap="nowrap" alignItems="center" spacing={3}>
           <Grid item>
@@ -53,10 +53,13 @@ const PostHeader = ({
           </Grid>
         </Grid>
         <Grid item>
-          <img src={coverImage} style={{ height: "auto", width: "100%" }} />
+          <img
+            src={coverImage}
+            style={{ height: "auto", width: "auto", maxWidth: 800 }}
+          />
         </Grid>
         <Grid item>
-            <Typography variant='h3'>{subtitle}</Typography>
+          <Typography variant="h4">{subtitle}</Typography>
         </Grid>
       </Grid>
     </Container>

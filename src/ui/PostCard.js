@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Post({
+export default function PostCard({
   title,
   subtitle,
   authorName,

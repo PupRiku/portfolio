@@ -15,7 +15,7 @@ import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
 import MenuList from "@material-ui/core/MenuList";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 // import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 // import IconButton from "@material-ui/core/IconButton";
 // import MenuIcon from "@material-ui/icons/Menu";
@@ -45,23 +45,23 @@ function ElevationScroll(props) {
 const useStyles = makeStyles(theme => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
-    marginBottom: "3em",
+    marginBottom: "4em",
     [theme.breakpoints.down("md")]: {
-      marginBottom: "2em",
+      marginBottom: "3em",
     },
     [theme.breakpoints.down("xs")]: {
-      marginBottom: "1.25em",
+      marginBottom: "1.5em",
     },
   },
   logo: {
     color: "white",
-    height: "8em",
+    height: "10em",
     textTransform: "none",
     [theme.breakpoints.down("md")]: {
-      height: "7em",
+      height: "8em",
     },
     [theme.breakpoints.down("xs")]: {
-      height: "5.5em",
+      height: "6em",
     },
   },
   logoContainer: {
@@ -546,7 +546,7 @@ export default function Header(props) {
               className={classes.logoContainer}
               style={{ textDecoration: "none" }}
             >
-              <Typography className={classes.logo}>Chris Diorio</Typography>
+              <img src='/assets/headerLogo.png' alt='Chris Diorio Logo' className={classes.logo} />
             </Button>
             {tabs}
             {/* <Hidden lgUp>{drawer}</Hidden> */}

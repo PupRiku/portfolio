@@ -6,7 +6,7 @@ import Hidden from "@material-ui/core/Hidden";
 
 const useStyles = makeStyles(theme => ({
   footer: {
-    backgroundColor: theme.palette.common.blue,
+    backgroundColor: theme.palette.common.orange,
     width: "100%",
     zIndex: 1302,
     position: "relative",

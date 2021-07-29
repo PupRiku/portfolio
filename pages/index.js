@@ -197,7 +197,12 @@ export default function Index() {
           alignItems="center"
           direction="row"
         >
-          <Grid item className={classes.heroTextContainer} md style={{marginLeft: '20em'}}>
+          <Grid
+            item
+            className={classes.heroTextContainer}
+            md
+            style={{ marginLeft: "20em" }}
+          >
             <Typography align="right" className={classes.heroText}>
               User Experience Designer.
               <br />
@@ -226,8 +231,12 @@ export default function Index() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item>
+      <Grid item container justifyContent="center">
+        <Grid item style={{ paddingBottom: "2em" }}>
+          <Typography variant="h2">Portfolio Examples</Typography>
+        </Grid>
         <Grid
+          item
           container
           direction="row"
           justifyContent="center"

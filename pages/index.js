@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Link from "../src/Link";
@@ -9,6 +9,11 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import CardHeader from "@material-ui/core/CardHeader";
+import Carousel from "../src/ui/Carousel";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import Slide from "@material-ui/core/Slide";
+import theme from "../src/ui/theme";
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -37,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     maxHeight: 300,
     marginLeft: 25,
     borderRadius: 30,
-    boxShadow: "2px 4px 8px rgba(0, 0, 0, 0.4)",
+    boxShadow: theme.shadows[10],
   },
   introText: {
     fontSize: "1.25em",
@@ -79,9 +84,84 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const Arrow = props => {
+  const classes = useTheme();
+  const { direction, clickFunction } = props;
+  const icon =
+    direction === "left" ? (
+      <ChevronLeftIcon fontSize="large" color={theme.palette.common.white} />
+    ) : (
+      <ChevronRightIcon fontSize="large" color={theme.palette.common.white} />
+    );
+
+  return (
+    <Button
+      variant="contained"
+      onClick={clickFunction}
+      disableRipple
+      disableElevation
+      style={{
+        margin: "2em",
+        backgroundColor: theme.palette.common.orange,
+        color: theme.palette.common.white,
+        borderRadius: 5,
+        padding: 10,
+      }}
+    >
+      {icon}
+    </Button>
+  );
+};
+
 export default function Index() {
   const classes = useStyles();
   const theme = useTheme();
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [slideIn, setSlideIn] = useState(true);
+  const [slideDirection, setSlideDirection] = useState("down");
+
+  const SLIDE_INFO = [
+    { backgroundImage: "/assets/carousel03.jpg", height: 623 },
+    { backgroundImage: "/assets/carousel02.jpg", height: 517 },
+    { backgroundImage: "/assets/carousel01.png", height: 450 },
+    { backgroundImage: "/assets/carousel04.jpg", height: 499 },
+    { backgroundImage: "/assets/carousel05.jpg", height: 450 },
+  ];
+
+  const content = SLIDE_INFO[slideIndex];
+  const numSlides = SLIDE_INFO.length;
+
+  const onArrowClick = direction => {
+    const increment = direction === "left" ? -1 : 1;
+    const newIndex = (slideIndex + increment + numSlides) % numSlides;
+
+    const oppDirection = direction === "left" ? "right" : "left";
+    setSlideDirection(direction);
+    setSlideIn(false);
+
+    setTimeout(() => {
+      setSlideIndex(newIndex);
+      setSlideDirection(oppDirection);
+      setSlideIn(true);
+    }, 500);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.keyCode === 39) {
+        onArrowClick("right");
+      }
+      if (e.keyCode === 37) {
+        onArrowClick("left");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  });
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
@@ -130,7 +210,13 @@ export default function Index() {
             <img src="/assets/Chris.jpg" className={classes.heroImage} />
           </Grid>
         </Grid>
-        <Grid item container justifyContent="center" alignItems="center">
+        <Grid
+          item
+          container
+          justifyContent="center"
+          alignItems="center"
+          style={{ marginTop: "2em" }}
+        >
           <Grid item style={{ maxWidth: 750 }}>
             <Typography className={classes.introText} align="center">
               Hello! My name is Chris Diorio and welcome to my website! Feel
@@ -141,9 +227,31 @@ export default function Index() {
         </Grid>
       </Grid>
       <Grid item>
-        <Grid container direction="column">
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          style={{ marginBottom: "5em" }}
+        >
           <Grid item>
-            <Typography>Image carousel</Typography>
+            <Arrow
+              direction="left"
+              clickFunction={() => onArrowClick("left")}
+            />
+          </Grid>
+          <Grid item>
+            <Slide in={slideIn} direction={slideDirection}>
+              <div>
+                <Carousel content={content} />
+              </div>
+            </Slide>
+          </Grid>
+          <Grid item>
+            <Arrow
+              direction="right"
+              clickFunction={() => onArrowClick("right")}
+            />
           </Grid>
         </Grid>
       </Grid>

@@ -27,9 +27,38 @@ export default function Index() {
         <title key="title">
           Chris Diorio - UX Designer and Front-End Developer
         </title>
+        <meta
+          name="description"
+          key="description"
+          content="Welcome to the website for Chris Diorio's portfolio, resumé, and more. Learn more about his philosophy and process and get in contact with him!"
+        />
+        <meta
+          property="og:title"
+          content="Chris Diorio - UX Designer and Front-End Developer"
+          key="og:title"
+        />
+        <meta
+          property="og:url"
+          key="og:url"
+          content="http://www.chrisdiorio.net"
+        />
+        <link
+          rel="canonical"
+          key="canonical"
+          href="http://www.chrisdiorio.net"
+        />
       </Head>
       <Grid item>
-        <p>Home Page</p>
+        <p>Hero Block</p>
+      </Grid>
+      <Grid item>
+        <p>Philosophy</p>
+      </Grid>
+      <Grid item>
+        <p>Image carousel</p>
+      </Grid>
+      <Grid item>
+        <p>About, Experience, Contact</p>
       </Grid>
     </Grid>
   );

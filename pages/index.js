@@ -197,7 +197,7 @@ export default function Index() {
           alignItems="center"
           direction="row"
         >
-          <Grid item className={classes.heroTextContainer} md>
+          <Grid item className={classes.heroTextContainer} md style={{marginLeft: '20em'}}>
             <Typography align="right" className={classes.heroText}>
               User Experience Designer.
               <br />

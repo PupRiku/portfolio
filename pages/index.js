@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Raleway",
     fontWeight: 700,
     fontSize: "3.5em",
-    color: theme.palette.common.purple,
+    color: theme.palette.common.orange,
   },
   heroImage: {
     maxHeight: 300,
@@ -123,6 +123,10 @@ const useStyles = makeStyles(theme => ({
   titleContainer: {
     marginBottom: "10em",
   },
+  highlight: {
+    color: theme.palette.common.purple,
+    fontWeight: 700,
+  }
 }));
 
 const Arrow = props => {
@@ -261,7 +265,7 @@ export default function Index() {
         >
           <Grid item style={{ maxWidth: 750 }}>
             <Typography className={classes.introText} align="center">
-              Hello! My name is Chris Diorio and welcome to my website! Feel
+              Hello! My name is <span className={classes.highlight}>Chris Diorio</span> and welcome to my website! Feel
               free to take a look around, learn more about me, check out what
               I've made, and get in touch for opportunities large and small.
             </Typography>

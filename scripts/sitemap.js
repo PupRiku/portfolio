@@ -4,7 +4,7 @@ const formatDate = require("./formatDate");
 
 // ROBOTS.txt
 const robotsTxt = `User-agent: *
-Sitemap: https://arc.com/sitemap_local.xml
+Sitemap: http://wwww.chrisdiorio.net/sitemap_local.xml
 Disallow:`;
 
 fs.writeFileSync("public/robots.txt", robotsTxt);
@@ -22,8 +22,8 @@ const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
       path => `<url>
     ${
       path === "/index"
-        ? `<loc>https://arc.com</loc>`
-        : `<loc>https://arc.com${path}</loc>`
+        ? `<loc>http://www.chrisdiorio.net</loc>`
+        : `<loc>http://www.chrisdiorio.net${path}</loc>`
     }
     <lastmod>${
       pathsObj[path].lastModified

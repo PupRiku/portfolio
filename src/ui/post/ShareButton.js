@@ -10,10 +10,6 @@ import {
   EmailIcon,
   LinkedinShareButton,
   LinkedinIcon,
-  TumblrShareButton,
-  TumblrIcon,
-  FacebookMessengerShareButton,
-  FacebookMessengerIcon,
 } from "react-share";
 
 const ShareButton = ({ url, title }) => (
@@ -47,12 +43,6 @@ const ShareButton = ({ url, title }) => (
     >
       <TelegramIcon size="32px" round />
     </TelegramShareButton>
-    <FacebookMessengerShareButton
-      url={url}
-      style={{ marginLeft: `15px`, outline: "none" }}
-    >
-      <FacebookMessengerIcon size="32px" round />
-    </FacebookMessengerShareButton>
     <EmailShareButton
       url={url}
       style={{ marginLeft: `15px`, outline: "none" }}

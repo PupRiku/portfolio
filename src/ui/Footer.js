@@ -32,7 +32,8 @@ const useStyles = makeStyles(theme => ({
     textDecoration: "none",
   },
   gridItem: {
-    margin: "3em",
+    marginLeft: "3em",
+    marginTop: "3em",
   },
   icon: {
     height: "4em",

@@ -82,10 +82,51 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: theme.palette.primary.light,
     },
   },
+  portfolioArrows: {
+    backgroundColor: theme.palette.common.orange,
+    color: theme.palette.common.white,
+    borderRadius: 10,
+    padding: "14px 14px",
+    marginLeft: "2em",
+    marginRight: "2em",
+    "&:hover": {
+      backgroundColor: theme.palette.primary.light,
+    },
+  },
+  portfolioButton: {
+    backgroundColor: theme.palette.common.orange,
+    color: theme.palette.common.white,
+    textTransform: "none",
+    borderRadius: 50,
+    fontFamily: "Roboto",
+    fontWeight: "bold",
+    fontSize: "1.1rem",
+    paddingLeft: 25,
+    paddingRight: 25,
+    "&:hover": {
+      backgroundColor: theme.palette.primary.light,
+    },
+  },
+  greyImage: {
+    filter: "gray",
+    WebkitFilter: "grayscale(1)",
+    WebkitTransition: "all .5s ease-in-out",
+    zIndex: "auto",
+    "&:hover": {
+      filter: "none",
+      zIndex: 10,
+      WebkitFilter: "grayscale(0)",
+      transform: "scale(1.05)",
+      boxShadow: theme.shadows[10],
+    },
+  },
+  titleContainer: {
+    marginBottom: "10em",
+  },
 }));
 
 const Arrow = props => {
-  const classes = useTheme();
+  const classes = useStyles();
   const { direction, clickFunction } = props;
   const icon =
     direction === "left" ? (
@@ -99,14 +140,7 @@ const Arrow = props => {
       variant="contained"
       onClick={clickFunction}
       disableRipple
-      disableElevation
-      style={{
-        margin: "2em",
-        backgroundColor: theme.palette.common.orange,
-        color: theme.palette.common.white,
-        borderRadius: 5,
-        padding: 10,
-      }}
+      className={classes.portfolioArrows}
     >
       {icon}
     </Button>
@@ -118,6 +152,9 @@ export default function Index() {
   const theme = useTheme();
   const [slideIndex, setSlideIndex] = useState(0);
   const [slideIn, setSlideIn] = useState(true);
+  const [aboutHover, setAboutHover] = useState(false);
+  const [lifeHover, setLifeHover] = useState(false);
+  const [contactHover, setContactHover] = useState(false);
   const [slideDirection, setSlideDirection] = useState("down");
 
   const SLIDE_INFO = [
@@ -231,7 +268,12 @@ export default function Index() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item container justifyContent="center">
+      <Grid
+        item
+        container
+        justifyContent="center"
+        style={{ marginBottom: "5em" }}
+      >
         <Grid item style={{ paddingBottom: "2em" }}>
           <Typography variant="h2">Portfolio Examples</Typography>
         </Grid>
@@ -241,26 +283,40 @@ export default function Index() {
           direction="row"
           justifyContent="center"
           alignItems="center"
-          style={{ marginBottom: "5em" }}
+          style={{ marginBottom: "2em" }}
         >
-          <Grid item>
-            <Arrow
-              direction="left"
-              clickFunction={() => onArrowClick("left")}
-            />
+          <Grid container justifyContent="center" alignItems="center">
+            <Grid item>
+              <Arrow
+                direction="left"
+                clickFunction={() => onArrowClick("left")}
+              />
+            </Grid>
+            <Grid item>
+              <Slide in={slideIn} direction={slideDirection}>
+                <div>
+                  <Carousel content={content} />
+                </div>
+              </Slide>
+            </Grid>
+            <Grid item>
+              <Arrow
+                direction="right"
+                clickFunction={() => onArrowClick("right")}
+              />
+            </Grid>
           </Grid>
+        </Grid>
+        <Grid item container justifyContent="center">
           <Grid item>
-            <Slide in={slideIn} direction={slideDirection}>
-              <div>
-                <Carousel content={content} />
-              </div>
-            </Slide>
-          </Grid>
-          <Grid item>
-            <Arrow
-              direction="right"
-              clickFunction={() => onArrowClick("right")}
-            />
+            <Button
+              component={Link}
+              href="/process"
+              variant="contained"
+              className={classes.portfolioButton}
+            >
+              See my entire portfolio
+            </Button>
           </Grid>
         </Grid>
       </Grid>
@@ -322,10 +378,75 @@ export default function Index() {
           <div className={classes.philosophyBackground} />
         </Grid>
       </Grid>
-      <Grid item>
-        <Grid container>
-          <Grid item>
-            <Typography>About, experience, contact</Typography>
+      <Grid item container justifyContent="center">
+        <Grid
+          container
+          style={{ marginTop: "5em", marginBottom: "2em", maxWidth: 900 }}
+        >
+          <Grid item className={classes.greyImage}>
+            <Button
+              style={{ padding: 0 }}
+              component={Link}
+              href="/about"
+              disableRipple
+              onMouseOver={() => setAboutHover(true)}
+              onMouseLeave={() => setAboutHover(false)}
+            >
+              <img src="/assets/hearNoEvil.jpg" width="300em" />
+            </Button>
+          </Grid>
+          <Grid item className={classes.greyImage}>
+            <Button
+              style={{ padding: 0 }}
+              component={Link}
+              href="/life"
+              disableRipple
+              onMouseOver={() => setLifeHover(true)}
+              onMouseLeave={() => setLifeHover(false)}
+            >
+              <img src="/assets/seeNoEvil.jpg" width="300em" />
+            </Button>
+          </Grid>
+          <Grid item className={classes.greyImage}>
+            <Button
+              style={{ padding: 0 }}
+              component={Link}
+              href="/contact"
+              disableRipple
+              onMouseOver={() => setContactHover(true)}
+              onMouseLeave={() => setContactHover(false)}
+            >
+              <img src="/assets/speakNoEvil.jpg" width="300em" />
+            </Button>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item container justifyContent="center">
+        <Grid
+          container
+          style={{ width: 900 }}
+          className={classes.titleContainer}
+        >
+          <Grid item md={4}>
+            <Typography
+              variant={aboutHover ? "h3" : "subtitle1"}
+              align="center"
+            >
+              About Me
+            </Typography>
+          </Grid>
+          <Grid item md={4}>
+            <Typography variant={lifeHover ? "h3" : "subtitle1"} align="center">
+              My Life
+            </Typography>
+          </Grid>
+          <Grid item md={4}>
+            <Typography
+              variant={contactHover ? "h3" : "subtitle1"}
+              align="center"
+            >
+              Contact Me
+            </Typography>
           </Grid>
         </Grid>
       </Grid>

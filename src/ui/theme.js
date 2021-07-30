@@ -46,6 +46,11 @@ const theme = createTheme({
       color: diorioOrange,
       fontWeight: 700,
     },
+    h3: {
+      fontSize: '1.5rem',
+      color: diorioOrange,
+      fontWeight: 700,
+    },
     h4: {
       color: diorioPurple,
     },

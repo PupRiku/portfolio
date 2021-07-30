@@ -47,7 +47,7 @@ const BlogPost = ({ post, morePosts }) => {
       title={post?.fields.title}
       description={post?.fields.subTitle}
       ogImage={post?.fields.coverImage.fields.file.url}
-      url={`https://portfolio-git-dev-pupriku.vercel.app/${post?.fields.slug}`}
+      url={`https://portfolio-git-dev-pupriku.vercel.app/blog/${post?.fields.slug}`}
       style={{ marginTop: "5em" }}
     >
       <PostHeader
@@ -73,7 +73,7 @@ const BlogPost = ({ post, morePosts }) => {
             >
               - Share -
             </Typography>
-            <ShareButton url={`https://portfolio-git-dev-pupriku.vercel.app/${post?.fields.slug}`} title={post?.fields.title} />
+            <ShareButton url={`https://portfolio-git-dev-pupriku.vercel.app/blog/${post?.fields.slug}`} title={post?.fields.title} />
           </Grid>
         </Grid>
         <Typography

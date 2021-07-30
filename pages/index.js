@@ -134,9 +134,9 @@ const Arrow = props => {
   const { direction, clickFunction } = props;
   const icon =
     direction === "left" ? (
-      <ChevronLeftIcon fontSize="large" color={theme.palette.common.white} />
+      <ChevronLeftIcon fontSize="large" />
     ) : (
-      <ChevronRightIcon fontSize="large" color={theme.palette.common.white} />
+      <ChevronRightIcon fontSize="large" />
     );
 
   return (

@@ -10,8 +10,6 @@ import {
   EmailIcon,
   LinkedinShareButton,
   LinkedinIcon,
-  TumblrShareButton,
-  TumblrIcon,
   FacebookMessengerShareButton,
   FacebookMessengerIcon,
 } from "react-share";

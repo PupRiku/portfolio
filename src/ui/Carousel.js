@@ -19,6 +19,10 @@ export default function Carousel(props) {
       boxShadow: theme.shadows[10],
       display: "flex",
       justifyContent: "center",
+      [theme.breakpoints.down('md')]: {
+        width: 500,
+        height: (height*5)/8
+      }
     },
   }));
 

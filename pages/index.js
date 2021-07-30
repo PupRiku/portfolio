@@ -14,6 +14,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Slide from "@material-ui/core/Slide";
 import theme from "../src/ui/theme";
+import { Hidden } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -22,7 +23,7 @@ const useStyles = makeStyles(theme => ({
       marginTop: "3em",
     },
     [theme.breakpoints.down("xs")]: {
-      marginTop: "2em",
+      marginTop: "3em",
     },
   },
   heroTextContainer: {
@@ -35,14 +36,26 @@ const useStyles = makeStyles(theme => ({
   heroText: {
     fontFamily: "Raleway",
     fontWeight: 700,
-    fontSize: "3.5em",
+    fontSize: "2.75em",
     color: theme.palette.common.orange,
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.95em",
+    },
   },
   heroImage: {
     maxHeight: 300,
     marginLeft: 25,
     borderRadius: 30,
     boxShadow: theme.shadows[10],
+    [theme.breakpoints.down("md")]: {
+      maxHeight: 225,
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 0,
+    },
+    [theme.breakpoints.down("xs")]: {
+      maxHeight: 200,
+    },
   },
   introText: {
     fontSize: "1.25em",
@@ -62,6 +75,12 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 15,
     maxWidth: 1000,
     backgroundColor: theme.palette.common.white,
+    [theme.breakpoints.down("md")]: {
+      maxWidth: 800,
+    },
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: 500,
+    },
   },
   philosophyText: {
     color: theme.palette.common.white,
@@ -126,7 +145,7 @@ const useStyles = makeStyles(theme => ({
   highlight: {
     color: theme.palette.common.purple,
     fontWeight: 700,
-  }
+  },
 }));
 
 const Arrow = props => {
@@ -160,6 +179,10 @@ export default function Index() {
   const [lifeHover, setLifeHover] = useState(false);
   const [contactHover, setContactHover] = useState(false);
   const [slideDirection, setSlideDirection] = useState("down");
+
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const SLIDE_INFO = [
     { backgroundImage: "/assets/carousel03.jpg", height: 623 },
@@ -236,15 +259,25 @@ export default function Index() {
           container
           justifyContent="center"
           alignItems="center"
-          direction="row"
+          direction={matchesSM ? "column" : "row"}
         >
           <Grid
             item
             className={classes.heroTextContainer}
             md
-            style={{ marginLeft: "20em" }}
+            style={{ marginLeft: matchesSM ? 0 : matchesMD ? "10em" : "15em" }}
           >
-            <Typography align="right" className={classes.heroText}>
+            <Hidden mdUp>
+              <Grid container justifyContent="center">
+                <Grid item md>
+                  <img src="/assets/Chris.jpg" className={classes.heroImage} />
+                </Grid>
+              </Grid>
+            </Hidden>
+            <Typography
+              align={matchesSM ? "center" : "right"}
+              className={classes.heroText}
+            >
               User Experience Designer.
               <br />
               Front-End Developer.
@@ -252,9 +285,11 @@ export default function Index() {
               All-Around Nerd.
             </Typography>
           </Grid>
-          <Grid item md>
-            <img src="/assets/Chris.jpg" className={classes.heroImage} />
-          </Grid>
+          <Hidden smDown>
+            <Grid item md>
+              <img src="/assets/Chris.jpg" className={classes.heroImage} />
+            </Grid>
+          </Hidden>
         </Grid>
         <Grid
           item
@@ -265,9 +300,11 @@ export default function Index() {
         >
           <Grid item style={{ maxWidth: 750 }}>
             <Typography className={classes.introText} align="center">
-              Hello! My name is <span className={classes.highlight}>Chris Diorio</span> and welcome to my website! Feel
-              free to take a look around, learn more about me, check out what
-              I've made, and get in touch for opportunities large and small.
+              Hello! My name is{" "}
+              <span className={classes.highlight}>Chris Diorio</span> and
+              welcome to my website! Feel free to take a look around, learn more
+              about me, check out what I've made, and get in touch for
+              opportunities large and small.
             </Typography>
           </Grid>
         </Grid>
@@ -276,41 +313,44 @@ export default function Index() {
         item
         container
         justifyContent="center"
-        style={{ marginBottom: "5em" }}
+        style={{ marginTop: "5em", marginBottom: "5em" }}
       >
-        <Grid item style={{ paddingBottom: "2em" }}>
-          <Typography variant="h2">Portfolio Examples</Typography>
-        </Grid>
-        <Grid
-          item
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          style={{ marginBottom: "2em" }}
-        >
-          <Grid container justifyContent="center" alignItems="center">
-            <Grid item>
-              <Arrow
-                direction="left"
-                clickFunction={() => onArrowClick("left")}
-              />
-            </Grid>
-            <Grid item>
-              <Slide in={slideIn} direction={slideDirection}>
-                <div>
-                  <Carousel content={content} />
-                </div>
-              </Slide>
-            </Grid>
-            <Grid item>
-              <Arrow
-                direction="right"
-                clickFunction={() => onArrowClick("right")}
-              />
+        <Hidden smDown>
+          <Grid item style={{ paddingBottom: "2em" }}>
+            <Typography variant="h2">Portfolio Examples</Typography>
+          </Grid>
+          <Grid
+            item
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            style={{ marginBottom: "2em" }}
+          >
+            <Grid container justifyContent="center" alignItems="center">
+              <Grid item>
+                <Arrow
+                  direction="left"
+                  clickFunction={() => onArrowClick("left")}
+                />
+              </Grid>
+              <Grid item>
+                <Slide in={slideIn} direction={slideDirection}>
+                  <div>
+                    <Carousel content={content} />
+                  </div>
+                </Slide>
+              </Grid>
+              <Grid item>
+                <Arrow
+                  direction="right"
+                  clickFunction={() => onArrowClick("right")}
+                />
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
+        </Hidden>
+
         <Grid item container justifyContent="center">
           <Grid item>
             <Button
@@ -336,10 +376,17 @@ export default function Index() {
               title="My Philosophy"
               style={{
                 textAlign: "center",
+                paddingLeft: 0,
+                paddingRight: 0,
               }}
               titleTypographyProps={{ variant: "h2" }}
             />
-            <CardContent>
+            <CardContent
+              style={{
+                paddingLeft: 0,
+                paddingRight: 0,
+              }}
+            >
               <Grid item container justifyContent="center">
                 <Grid item>
                   <Typography variant="subtitle1" align="center">
@@ -352,7 +399,10 @@ export default function Index() {
               <Grid
                 item
                 container
-                style={{ paddingLeft: "5em", paddingRight: "5em" }}
+                style={{
+                  paddingLeft: matchesSM ? "1em" : "5em",
+                  paddingRight: matchesSM ? "1em" : "5em",
+                }}
               >
                 <Grid item>
                   <Typography align="center">
@@ -385,7 +435,11 @@ export default function Index() {
       <Grid item container justifyContent="center">
         <Grid
           container
-          style={{ marginTop: "5em", marginBottom: "2em", maxWidth: 900 }}
+          style={{
+            marginTop: "5em",
+            marginBottom: "2em",
+            maxWidth: matchesXS ? 300 : matchesSM ? 525 : 900,
+          }}
         >
           <Grid item className={classes.greyImage}>
             <Button
@@ -396,7 +450,10 @@ export default function Index() {
               onMouseOver={() => setAboutHover(true)}
               onMouseLeave={() => setAboutHover(false)}
             >
-              <img src="/assets/hearNoEvil.jpg" width="300em" />
+              <img
+                src="/assets/hearNoEvil.jpg"
+                width={matchesXS ? '100em' : matchesSM ? "175em" : "300em"}
+              />
             </Button>
           </Grid>
           <Grid item className={classes.greyImage}>
@@ -408,7 +465,10 @@ export default function Index() {
               onMouseOver={() => setLifeHover(true)}
               onMouseLeave={() => setLifeHover(false)}
             >
-              <img src="/assets/seeNoEvil.jpg" width="300em" />
+              <img
+                src="/assets/seeNoEvil.jpg"
+                width={matchesXS ? '100em' : matchesSM ? "175em" : "300em"}
+              />
             </Button>
           </Grid>
           <Grid item className={classes.greyImage}>
@@ -420,7 +480,10 @@ export default function Index() {
               onMouseOver={() => setContactHover(true)}
               onMouseLeave={() => setContactHover(false)}
             >
-              <img src="/assets/speakNoEvil.jpg" width="300em" />
+              <img
+                src="/assets/speakNoEvil.jpg"
+                width={matchesXS ? '100em' : matchesSM ? "175em" : "300em"}
+              />
             </Button>
           </Grid>
         </Grid>
@@ -428,10 +491,10 @@ export default function Index() {
       <Grid item container justifyContent="center">
         <Grid
           container
-          style={{ width: 900 }}
+          style={{ width: matchesXS ? 300 : matchesSM ? 525 : 900 }}
           className={classes.titleContainer}
         >
-          <Grid item md={4}>
+          <Grid item xs={4}>
             <Typography
               variant={aboutHover ? "h3" : "subtitle1"}
               align="center"
@@ -439,12 +502,12 @@ export default function Index() {
               About Me
             </Typography>
           </Grid>
-          <Grid item md={4}>
+          <Grid item xs={4}>
             <Typography variant={lifeHover ? "h3" : "subtitle1"} align="center">
               My Life
             </Typography>
           </Grid>
-          <Grid item md={4}>
+          <Grid item xs={4}>
             <Typography
               variant={contactHover ? "h3" : "subtitle1"}
               align="center"

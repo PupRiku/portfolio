@@ -265,7 +265,7 @@ export default function Index() {
             item
             className={classes.heroTextContainer}
             md
-            style={{ marginLeft: matchesSM ? 0 : matchesMD ? "10em" : "15em" }}
+            style={{ marginLeft: matchesSM ? 0 : matchesMD ? "10em" : "15em", marginRight: matchesSM ? 0 : undefined }}
           >
             <Hidden mdUp>
               <Grid container justifyContent="center">

@@ -62,7 +62,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 300,
   },
   philosophyBackground: {
-    backgroundImage: `url('/assets/philosophyBackground.jpeg')`,
+    backgroundImage: `url('/assets/philosophyBackground.webp')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -185,11 +185,11 @@ export default function Index() {
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const SLIDE_INFO = [
-    { backgroundImage: "/assets/carousel03.jpg", height: 623 },
-    { backgroundImage: "/assets/carousel02.jpg", height: 517 },
-    { backgroundImage: "/assets/carousel01.png", height: 450 },
-    { backgroundImage: "/assets/carousel04.jpg", height: 499 },
-    { backgroundImage: "/assets/carousel05.jpg", height: 450 },
+    { backgroundImage: "/assets/carousel03.webp", height: 623 },
+    { backgroundImage: "/assets/carousel02.webp", height: 517 },
+    { backgroundImage: "/assets/carousel01.webp", height: 450 },
+    { backgroundImage: "/assets/carousel04.webp", height: 499 },
+    { backgroundImage: "/assets/carousel05.webp", height: 450 },
   ];
 
   const content = SLIDE_INFO[slideIndex];
@@ -270,7 +270,7 @@ export default function Index() {
             <Hidden mdUp>
               <Grid container justifyContent="center">
                 <Grid item md>
-                  <img src="/assets/Chris.jpg" className={classes.heroImage} />
+                  <img src="/assets/Chris.webp" className={classes.heroImage} />
                 </Grid>
               </Grid>
             </Hidden>
@@ -287,7 +287,7 @@ export default function Index() {
           </Grid>
           <Hidden smDown>
             <Grid item md>
-              <img src="/assets/Chris.jpg" className={classes.heroImage} />
+              <img src="/assets/Chris.webp" className={classes.heroImage} />
             </Grid>
           </Hidden>
         </Grid>
@@ -451,7 +451,7 @@ export default function Index() {
               onMouseLeave={() => setAboutHover(false)}
             >
               <img
-                src="/assets/hearNoEvil.jpg"
+                src="/assets/hearNoEvil.webp"
                 width={matchesXS ? '100em' : matchesSM ? "175em" : "300em"}
               />
             </Button>
@@ -466,7 +466,7 @@ export default function Index() {
               onMouseLeave={() => setLifeHover(false)}
             >
               <img
-                src="/assets/seeNoEvil.jpg"
+                src="/assets/seeNoEvil.webp"
                 width={matchesXS ? '100em' : matchesSM ? "175em" : "300em"}
               />
             </Button>
@@ -481,7 +481,7 @@ export default function Index() {
               onMouseLeave={() => setContactHover(false)}
             >
               <img
-                src="/assets/speakNoEvil.jpg"
+                src="/assets/speakNoEvil.webp"
                 width={matchesXS ? '100em' : matchesSM ? "175em" : "300em"}
               />
             </Button>

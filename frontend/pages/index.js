@@ -143,11 +143,6 @@ export default function Index() {
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
-  
-  const placeholder = (
-    <div style={{width: matchesMD ? 225 : matchesXS ? 200 : 300,
-    height: matchesMD ? 263 : matchesXS ? 234 : 351}} />
-  )
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
@@ -226,8 +221,6 @@ export default function Index() {
                 width={matchesMD ? 225 : matchesXS ? 200 : 300}
                 height={matchesMD ? 263 : matchesXS ? 234 : 351}
                 className={classes.heroImage}
-                placeholder={placeholder}
-                effect='blur'
               />
             </Grid>
           </Hidden>

@@ -18,10 +18,6 @@ import {
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
-    marginTop: "6em",
-    [theme.breakpoints.down("md")]: {
-      marginTop: "3em",
-    },
     [theme.breakpoints.down("xs")]: {
       marginTop: "3em",
     },

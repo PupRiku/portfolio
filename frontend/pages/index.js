@@ -367,6 +367,7 @@ export default function Index() {
       </Grid>
       <Grid item>
         <Grid
+          item
           container
           style={{ height: "35em" }}
           alignItems="center"

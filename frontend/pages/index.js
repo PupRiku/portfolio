@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Link from "../src/Link";
@@ -9,12 +9,12 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import CardHeader from "@material-ui/core/CardHeader";
-import Carousel from "../src/ui/Carousel";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import Slide from "@material-ui/core/Slide";
 import theme from "../src/ui/theme";
 import { Hidden } from "@material-ui/core";
+import {
+  LazyLoadImage,
+  LazyLoadComponent,
+} from "react-lazy-load-image-component";
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -137,84 +137,21 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Arrow = props => {
-  const classes = useStyles();
-  const { direction, clickFunction } = props;
-  const icon =
-    direction === "left" ? (
-      <ChevronLeftIcon fontSize="large" />
-    ) : (
-      <ChevronRightIcon fontSize="large" />
-    );
-
-  return (
-    <Button
-      variant="contained"
-      onClick={clickFunction}
-      disableRipple
-      className={classes.portfolioArrows}
-    >
-      {icon}
-    </Button>
-  );
-};
-
 export default function Index() {
   const classes = useStyles();
   const theme = useTheme();
-  const [slideIndex, setSlideIndex] = useState(0);
-  const [slideIn, setSlideIn] = useState(true);
   const [aboutHover, setAboutHover] = useState(false);
   const [lifeHover, setLifeHover] = useState(false);
   const [contactHover, setContactHover] = useState(false);
-  const [slideDirection, setSlideDirection] = useState("up");
 
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
-
-  const SLIDE_INFO = [
-    { backgroundImage: "/assets/carousel03.webp", height: 450 },
-    { backgroundImage: "/assets/carousel02.webp", height: 450 },
-    { backgroundImage: "/assets/carousel01.webp", height: 450 },
-    { backgroundImage: "/assets/carousel04.webp", height: 450 },
-    { backgroundImage: "/assets/carousel05.webp", height: 450 },
-  ];
-
-  const content = SLIDE_INFO[slideIndex];
-  const numSlides = SLIDE_INFO.length;
-
-  const onArrowClick = direction => {
-    const increment = direction === "left" ? -1 : 1;
-    const newIndex = (slideIndex + increment + numSlides) % numSlides;
-
-    const oppDirection = direction === "left" ? "right" : "left";
-    setSlideDirection(direction);
-    setSlideIn(false);
-
-    setTimeout(() => {
-      setSlideIndex(newIndex);
-      setSlideDirection(oppDirection);
-      setSlideIn(true);
-    }, 500);
-  };
-
-  useEffect(() => {
-    const handleKeyDown = e => {
-      if (e.keyCode === 39) {
-        onArrowClick("right");
-      }
-      if (e.keyCode === 37) {
-        onArrowClick("left");
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  });
+  
+  const placeholder = (
+    <div style={{width: matchesMD ? 225 : matchesXS ? 200 : 300,
+    height: matchesMD ? 263 : matchesXS ? 234 : 351}} />
+  )
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
@@ -262,7 +199,7 @@ export default function Index() {
             <Hidden mdUp>
               <Grid container justifyContent="center">
                 <Grid item>
-                  <img
+                  <LazyLoadImage
                     src="/assets/Chris.webp"
                     width={matchesMD ? 225 : matchesXS ? 200 : 300}
                     height={matchesMD ? 263 : matchesXS ? 234 : 351}
@@ -288,11 +225,13 @@ export default function Index() {
           </Grid>
           <Hidden smDown>
             <Grid item md>
-              <img
+              <LazyLoadImage
                 src="/assets/Chris.webp"
                 width={matchesMD ? 225 : matchesXS ? 200 : 300}
                 height={matchesMD ? 263 : matchesXS ? 234 : 351}
                 className={classes.heroImage}
+                placeholder={placeholder}
+                effect='blur'
               />
             </Grid>
           </Hidden>
@@ -321,42 +260,6 @@ export default function Index() {
         justifyContent="center"
         style={{ marginTop: "5em", marginBottom: "5em" }}
       >
-        {/* <Hidden smDown>
-          <Grid item style={{ paddingBottom: "2em" }}>
-            <Typography variant="h2">Portfolio Examples</Typography>
-          </Grid>
-          <Grid
-            item
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            style={{ marginBottom: "2em" }}
-          >
-            <Grid container justifyContent="center" alignItems="center">
-              <Grid item>
-                <Arrow
-                  direction="left"
-                  clickFunction={() => onArrowClick("left")}
-                />
-              </Grid>
-              <Grid item>
-                <Slide in={slideIn} direction={slideDirection}>
-                  <div>
-                    <Carousel content={content} />
-                  </div>
-                </Slide>
-              </Grid>
-              <Grid item>
-                <Arrow
-                  direction="right"
-                  clickFunction={() => onArrowClick("right")}
-                />
-              </Grid>
-            </Grid>
-          </Grid>
-        </Hidden> */}
-
         <Grid item container justifyContent="center">
           <Grid item>
             <Button
@@ -436,12 +339,14 @@ export default function Index() {
               </Grid>
             </CardContent>
           </Card>
-          <div
-            style={{
-              backgroundImage: `url('/assets/philosophyBackground.webp')`,
-            }}
-            className={classes.philosophyBackground}
-          />
+          <LazyLoadComponent visibleByDefault="true">
+            <div
+              style={{
+                backgroundImage: `url('/assets/philosophyBackground.webp')`,
+              }}
+              className={classes.philosophyBackground}
+            />
+          </LazyLoadComponent>
         </Grid>
       </Grid>
       <Grid item container justifyContent="center">
@@ -462,7 +367,7 @@ export default function Index() {
               onMouseOver={() => setAboutHover(true)}
               onMouseLeave={() => setAboutHover(false)}
             >
-              <img
+              <LazyLoadImage
                 src="/assets/hearNoEvil.webp"
                 width={matchesXS ? 100 : matchesSM ? 175 : 300}
                 height={matchesXS ? 133 : matchesSM ? 233 : 400}
@@ -478,7 +383,7 @@ export default function Index() {
               onMouseOver={() => setLifeHover(true)}
               onMouseLeave={() => setLifeHover(false)}
             >
-              <img
+              <LazyLoadImage
                 src="/assets/seeNoEvil.webp"
                 width={matchesXS ? 100 : matchesSM ? 175 : 300}
                 height={matchesXS ? 133 : matchesSM ? 233 : 400}
@@ -494,7 +399,7 @@ export default function Index() {
               onMouseOver={() => setContactHover(true)}
               onMouseLeave={() => setContactHover(false)}
             >
-              <img
+              <LazyLoadImage
                 src="/assets/speakNoEvil.webp"
                 width={matchesXS ? 100 : matchesSM ? 175 : 300}
                 height={matchesXS ? 133 : matchesSM ? 233 : 400}

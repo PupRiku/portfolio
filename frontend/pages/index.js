@@ -185,10 +185,10 @@ export default function Index() {
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
 
   const SLIDE_INFO = [
-    { backgroundImage: "/assets/carousel03.webp", height: 623 },
-    { backgroundImage: "/assets/carousel02.webp", height: 517 },
+    { backgroundImage: "/assets/carousel03.webp", height: 450 },
+    { backgroundImage: "/assets/carousel02.webp", height: 450 },
     { backgroundImage: "/assets/carousel01.webp", height: 450 },
-    { backgroundImage: "/assets/carousel04.webp", height: 499 },
+    { backgroundImage: "/assets/carousel04.webp", height: 450 },
     { backgroundImage: "/assets/carousel05.webp", height: 450 },
   ];
 

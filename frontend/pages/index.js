@@ -315,7 +315,7 @@ export default function Index() {
         justifyContent="center"
         style={{ marginTop: "5em", marginBottom: "5em" }}
       >
-        <Hidden smDown>
+        {/* <Hidden smDown>
           <Grid item style={{ paddingBottom: "2em" }}>
             <Typography variant="h2">Portfolio Examples</Typography>
           </Grid>
@@ -349,7 +349,7 @@ export default function Index() {
               </Grid>
             </Grid>
           </Grid>
-        </Hidden>
+        </Hidden> */}
 
         <Grid item container justifyContent="center">
           <Grid item>

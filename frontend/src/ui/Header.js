@@ -15,7 +15,6 @@ import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
 import MenuList from "@material-ui/core/MenuList";
-import Typography from "@material-ui/core/Typography";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -552,6 +551,7 @@ export default function Header(props) {
             href="https://www.linkedin.com/in/cdiorio"
             target="_blank"
             style={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}
+            key='linkedin'
           >
             <svg
               height="4em"
@@ -577,6 +577,7 @@ export default function Header(props) {
             component="a"
             href="https://github.com/PupRiku"
             target="_blank"
+            key='github'
           >
             <svg
               height="4em"

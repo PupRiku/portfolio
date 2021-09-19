@@ -288,7 +288,12 @@ export default function Index() {
           </Grid>
           <Hidden smDown>
             <Grid item md>
-              <img src="/assets/Chris.webp" className={classes.heroImage} />
+              <img
+                src="/assets/Chris.webp"
+                width={matchesMD ? 225 : matchesXS ? 200 : 300}
+                height={matchesMD ? 263 : matchesXS ? 234 : 351}
+                className={classes.heroImage}
+              />
             </Grid>
           </Hidden>
         </Grid>

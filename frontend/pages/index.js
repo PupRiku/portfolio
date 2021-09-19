@@ -274,19 +274,17 @@ export default function Index() {
                 </Grid>
               </Grid>
             </Hidden>
-            <Grid container>
-              <Grid item md>
-                <Typography
-                  align={matchesSM ? "center" : "right"}
-                  className={classes.heroText}
-                >
-                  User Experience Designer.
-                  <br />
-                  Front-End Developer.
-                  <br />
-                  All-Around Nerd.
-                </Typography>
-              </Grid>
+            <Grid item md>
+              <Typography
+                align={matchesSM ? "center" : "right"}
+                className={classes.heroText}
+              >
+                User Experience Designer.
+                <br />
+                Front-End Developer.
+                <br />
+                All-Around Nerd.
+              </Typography>
             </Grid>
           </Grid>
           <Hidden smDown>

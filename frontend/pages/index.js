@@ -55,7 +55,6 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 300,
   },
   philosophyBackground: {
-    backgroundImage: `url('/assets/philosophyBackground.webp')`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -436,7 +435,7 @@ export default function Index() {
               </Grid>
             </CardContent>
           </Card>
-          <div className={classes.philosophyBackground} />
+          <div style={{backgroundImage: `url('/assets/philosophyBackground.webp')`}} className={classes.philosophyBackground} />
         </Grid>
       </Grid>
       <Grid item container justifyContent="center">

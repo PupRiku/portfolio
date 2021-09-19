@@ -23,7 +23,8 @@ const useStyles = makeStyles(theme => ({
   },
   heroTextContainer: {
     minWidth: "21.5em",
-    marginRight: 15,
+    marginLeft: "4em",
+    marginRight: "1em",
     [theme.breakpoints.down("xs")]: {
       marginLeft: 0,
     },
@@ -185,9 +186,9 @@ export default function Index() {
           <Grid
             item
             className={classes.heroTextContainer}
-            md
+            md={6}
             style={{
-              marginLeft: matchesSM ? 0 : matchesMD ? "10em" : "10em",
+              marginLeft: matchesSM ? 0 : undefined,
               marginRight: matchesSM ? 0 : undefined,
             }}
           >
@@ -203,8 +204,8 @@ export default function Index() {
                 </Grid>
               </Grid>
             </Hidden>
-            <Grid container>
-              <Grid item md>
+            <Grid container justifyContent='flex-end'>
+              <Grid item>
                 <Typography
                   align={matchesSM ? "center" : "right"}
                   className={classes.heroText}
@@ -253,7 +254,7 @@ export default function Index() {
         item
         container
         justifyContent="center"
-        style={{ marginTop: "5em", marginBottom: "5em" }}
+        style={{ marginBottom: "5em" }}
       >
         <Grid item container justifyContent="center">
           <Grid item>

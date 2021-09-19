@@ -454,7 +454,8 @@ export default function Index() {
             >
               <img
                 src="/assets/hearNoEvil.webp"
-                width={matchesXS ? "100em" : matchesSM ? "175em" : "300em"}
+                width={matchesXS ? 100 : matchesSM ? 175 : 300}
+                height={matchesXS ? 133 : matchesSM ? 233 : 400}
               />
             </Button>
           </Grid>
@@ -469,7 +470,8 @@ export default function Index() {
             >
               <img
                 src="/assets/seeNoEvil.webp"
-                width={matchesXS ? "100em" : matchesSM ? "175em" : "300em"}
+                width={matchesXS ? 100 : matchesSM ? 175 : 300}
+                height={matchesXS ? 133 : matchesSM ? 233 : 400}
               />
             </Button>
           </Grid>
@@ -484,7 +486,8 @@ export default function Index() {
             >
               <img
                 src="/assets/speakNoEvil.webp"
-                width={matchesXS ? "100em" : matchesSM ? "175em" : "300em"}
+                width={matchesXS ? 100 : matchesSM ? 175 : 300}
+                height={matchesXS ? 133 : matchesSM ? 233 : 400}
               />
             </Button>
           </Grid>

@@ -274,16 +274,20 @@ export default function Index() {
                 </Grid>
               </Grid>
             </Hidden>
-            <Typography
-              align={matchesSM ? "center" : "right"}
-              className={classes.heroText}
-            >
-              User Experience Designer.
-              <br />
-              Front-End Developer.
-              <br />
-              All-Around Nerd.
-            </Typography>
+            <Grid container>
+              <Grid item md>
+                <Typography
+                  align={matchesSM ? "center" : "right"}
+                  className={classes.heroText}
+                >
+                  User Experience Designer.
+                  <br />
+                  Front-End Developer.
+                  <br />
+                  All-Around Nerd.
+                </Typography>
+              </Grid>
+            </Grid>
           </Grid>
           <Hidden smDown>
             <Grid item md>
@@ -435,7 +439,12 @@ export default function Index() {
               </Grid>
             </CardContent>
           </Card>
-          <div style={{backgroundImage: `url('/assets/philosophyBackground.webp')`}} className={classes.philosophyBackground} />
+          <div
+            style={{
+              backgroundImage: `url('/assets/philosophyBackground.webp')`,
+            }}
+            className={classes.philosophyBackground}
+          />
         </Grid>
       </Grid>
       <Grid item container justifyContent="center">

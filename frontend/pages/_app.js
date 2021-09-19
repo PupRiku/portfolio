@@ -6,7 +6,6 @@ import theme from "../src/ui/theme";
 import Header from "../src/ui/Header";
 import Fonts from "../src/ui/Fonts";
 import Footer from "../src/ui/Footer";
-import CssBaseline from '@material-ui/core/CssBaseline';
 
 export default function MyApp(props) {
   const [experienceIndex, setExperienceIndex] = useState(0);
@@ -41,7 +40,6 @@ export default function MyApp(props) {
           experienceIndex={experienceIndex}
           setExperienceIndex={setExperienceIndex}
         />
-        <CssBaseline />
         <Component
           {...pageProps}
           value={value}

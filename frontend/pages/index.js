@@ -43,18 +43,11 @@ const useStyles = makeStyles(theme => ({
     },
   },
   heroImage: {
-    maxHeight: 300,
     marginLeft: 25,
     borderRadius: 30,
     boxShadow: theme.shadows[10],
-    [theme.breakpoints.down("md")]: {
-      maxHeight: 225,
-    },
     [theme.breakpoints.down("sm")]: {
       marginLeft: 0,
-    },
-    [theme.breakpoints.down("xs")]: {
-      maxHeight: 200,
     },
   },
   introText: {
@@ -265,12 +258,20 @@ export default function Index() {
             item
             className={classes.heroTextContainer}
             md
-            style={{ marginLeft: matchesSM ? 0 : matchesMD ? "10em" : "15em", marginRight: matchesSM ? 0 : undefined }}
+            style={{
+              marginLeft: matchesSM ? 0 : matchesMD ? "10em" : "15em",
+              marginRight: matchesSM ? 0 : undefined,
+            }}
           >
             <Hidden mdUp>
               <Grid container justifyContent="center">
                 <Grid item md>
-                  <img src="/assets/Chris.webp" className={classes.heroImage} />
+                  <img
+                    src="/assets/Chris.webp"
+                    width={matchesMD ? 225 : matchesXS ? 200 : 300}
+                    height={matchesMD ? 263 : matchesXS ? 234 : 351}
+                    className={classes.heroImage}
+                  />
                 </Grid>
               </Grid>
             </Hidden>
@@ -452,7 +453,7 @@ export default function Index() {
             >
               <img
                 src="/assets/hearNoEvil.webp"
-                width={matchesXS ? '100em' : matchesSM ? "175em" : "300em"}
+                width={matchesXS ? "100em" : matchesSM ? "175em" : "300em"}
               />
             </Button>
           </Grid>
@@ -467,7 +468,7 @@ export default function Index() {
             >
               <img
                 src="/assets/seeNoEvil.webp"
-                width={matchesXS ? '100em' : matchesSM ? "175em" : "300em"}
+                width={matchesXS ? "100em" : matchesSM ? "175em" : "300em"}
               />
             </Button>
           </Grid>
@@ -482,7 +483,7 @@ export default function Index() {
             >
               <img
                 src="/assets/speakNoEvil.webp"
-                width={matchesXS ? '100em' : matchesSM ? "175em" : "300em"}
+                width={matchesXS ? "100em" : matchesSM ? "175em" : "300em"}
               />
             </Button>
           </Grid>

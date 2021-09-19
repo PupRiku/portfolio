@@ -178,7 +178,7 @@ export default function Index() {
   const [aboutHover, setAboutHover] = useState(false);
   const [lifeHover, setLifeHover] = useState(false);
   const [contactHover, setContactHover] = useState(false);
-  const [slideDirection, setSlideDirection] = useState("left");
+  const [slideDirection, setSlideDirection] = useState("up");
 
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));

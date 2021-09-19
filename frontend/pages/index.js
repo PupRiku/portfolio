@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   },
   heroTextContainer: {
     minWidth: "21.5em",
-    marginRight: 25,
+    marginRight: 15,
     [theme.breakpoints.down("xs")]: {
       marginLeft: 0,
     },
@@ -36,19 +36,16 @@ const useStyles = makeStyles(theme => ({
   heroText: {
     fontFamily: "Raleway",
     fontWeight: 700,
-    fontSize: "2.75em",
+    fontSize: "2.25em",
     color: theme.palette.common.orange,
     [theme.breakpoints.down("md")]: {
-      fontSize: "1.95em",
+      fontSize: "1.75em",
     },
   },
   heroImage: {
-    marginLeft: 25,
+    marginLeft: 0,
     borderRadius: 30,
     boxShadow: theme.shadows[10],
-    [theme.breakpoints.down("sm")]: {
-      marginLeft: 0,
-    },
   },
   introText: {
     fontSize: "1.25em",
@@ -258,13 +255,13 @@ export default function Index() {
             className={classes.heroTextContainer}
             md
             style={{
-              marginLeft: matchesSM ? 0 : matchesMD ? "10em" : "15em",
+              marginLeft: matchesSM ? 0 : matchesMD ? "10em" : "10em",
               marginRight: matchesSM ? 0 : undefined,
             }}
           >
             <Hidden mdUp>
               <Grid container justifyContent="center">
-                <Grid item md>
+                <Grid item>
                   <img
                     src="/assets/Chris.webp"
                     width={matchesMD ? 225 : matchesXS ? 200 : 300}
@@ -274,17 +271,19 @@ export default function Index() {
                 </Grid>
               </Grid>
             </Hidden>
-            <Grid item md>
-              <Typography
-                align={matchesSM ? "center" : "right"}
-                className={classes.heroText}
-              >
-                User Experience Designer.
-                <br />
-                Front-End Developer.
-                <br />
-                All-Around Nerd.
-              </Typography>
+            <Grid container>
+              <Grid item md>
+                <Typography
+                  align={matchesSM ? "center" : "right"}
+                  className={classes.heroText}
+                >
+                  User Experience Designer.
+                  <br />
+                  Front-End Developer.
+                  <br />
+                  All-Around Nerd.
+                </Typography>
+              </Grid>
             </Grid>
           </Grid>
           <Hidden smDown>

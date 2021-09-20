@@ -492,12 +492,14 @@ export default function Process() {
               </Grid>
             </CardContent>
           </Card>
-          <div
-            style={{
-              backgroundImage: `url('/assets/processBackground.webp')`,
-            }}
-            className={classes.philosophyBackground}
-          />
+          <LazyLoadComponent threshold={900}>
+            <div
+              style={{
+                backgroundImage: `url('/assets/processBackground.webp')`,
+              }}
+              className={classes.philosophyBackground}
+            />
+          </LazyLoadComponent>
         </Grid>
       </Grid>
     </Grid>

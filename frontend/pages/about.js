@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "../src/Link";
+import Hidden from "@material-ui/core/Hidden";
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -25,6 +26,11 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       color: theme.palette.common.purple,
       fontWeight: 700,
+    },
+  },
+  title: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "4.25rem",
     },
   },
 }));
@@ -62,12 +68,12 @@ export default function About() {
           href="http://www.chrisdiorio.net/about"
         />
       </Head>
-      <Grid item md style={{ marginBottom: "4em" }}>
-        <Typography variant="h1" align="center">
+      <Grid item md style={{ marginBottom: matchesSM ? "2em" : "4em" }}>
+        <Typography variant="h1" align="center" className={classes.title}>
           About Chris
         </Typography>
       </Grid>
-      <Grid item style={{ marginBottom: "4em" }}>
+      <Grid item style={{ marginBottom: matchesSM ? "2em" : "4em" }}>
         <Grid
           container
           justifyContent="center"
@@ -81,7 +87,10 @@ export default function About() {
                 sm
                 container
                 justifyContent="center"
-                style={{ flexGrow: 0 }}
+                style={{
+                  flexGrow: 0,
+                  marginBottom: matchesSM ? "1em" : undefined,
+                }}
               >
                 <Grid item>
                   <LazyLoadImage
@@ -93,10 +102,20 @@ export default function About() {
                   />
                 </Grid>
               </Grid>
-              <Grid item md={6} style={{ marginLeft: "5em" }}>
+              <Grid
+                item
+                md={6}
+                style={{
+                  marginLeft: matchesSM ? 0 : matchesMD ? "3em" : "5em",
+                }}
+              >
                 <Grid container direction="column">
                   <Grid item style={{ marginBottom: "1em" }}>
-                    <Typography variant="h2">
+                    <Typography
+                      variant="h2"
+                      align={matchesSM ? "center" : undefined}
+                      style={{ fontSize: matchesXS ? "1.75rem" : undefined }}
+                    >
                       From East Coast to Midwest
                     </Typography>
                   </Grid>
@@ -129,7 +148,7 @@ export default function About() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item style={{ marginBottom: "4em" }}>
+      <Grid item style={{ marginBottom: matchesSM ? "2em" : "4em" }}>
         <Grid
           container
           justifyContent="center"
@@ -138,10 +157,42 @@ export default function About() {
         >
           <Grid item>
             <Grid container justifyContent="center">
-              <Grid item md={6} style={{ marginRight: "5em" }}>
+              <Grid
+                item
+                sm
+                container
+                justifyContent="center"
+                style={{
+                  flexGrow: 0,
+                  marginBottom: matchesSM ? "1em" : undefined,
+                }}
+              >
+                <Hidden mdUp>
+                  <Grid item>
+                    <LazyLoadImage
+                      src="/assets/queerShortsProfile.webp"
+                      alt="Chris sitting on the floor in front of a theater backdrop"
+                      width={matchesMD ? 225 : matchesXS ? 150 : 300}
+                      height={matchesMD ? 225 : matchesXS ? 150 : 300}
+                      className={classes.heroImage}
+                    />
+                  </Grid>
+                </Hidden>
+              </Grid>
+              <Grid
+                item
+                md={6}
+                style={{
+                  marginRight: matchesSM ? 0 : matchesMD ? "3em" : "5em",
+                }}
+              >
                 <Grid container direction="column">
                   <Grid item style={{ marginBottom: "1em" }}>
-                    <Typography variant="h2">
+                    <Typography
+                      variant="h2"
+                      align={matchesSM ? "center" : undefined}
+                      style={{ fontSize: matchesXS ? "1.75rem" : undefined }}
+                    >
                       All Work And No Play...
                     </Typography>
                   </Grid>
@@ -168,23 +219,28 @@ export default function About() {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid
-                item
-                sm
-                container
-                justifyContent="center"
-                style={{ flexGrow: 0 }}
-              >
-                <Grid item>
-                  <LazyLoadImage
-                    src="/assets/queerShortsProfile.webp"
-                    alt="Chris sitting on the floor in front of a theater backdrop"
-                    width={matchesMD ? 225 : matchesXS ? 150 : 300}
-                    height={matchesMD ? 225 : matchesXS ? 150 : 300}
-                    className={classes.heroImage}
-                  />
+              <Hidden smDown>
+                <Grid
+                  item
+                  sm
+                  container
+                  justifyContent="center"
+                  style={{
+                    flexGrow: 0,
+                    marginBottom: matchesSM ? "1em" : undefined,
+                  }}
+                >
+                  <Grid item>
+                    <LazyLoadImage
+                      src="/assets/queerShortsProfile.webp"
+                      alt="Chris sitting on the floor in front of a theater backdrop"
+                      width={matchesMD ? 225 : matchesXS ? 150 : 300}
+                      height={matchesMD ? 225 : matchesXS ? 150 : 300}
+                      className={classes.heroImage}
+                    />
+                  </Grid>
                 </Grid>
-              </Grid>
+              </Hidden>
             </Grid>
           </Grid>
         </Grid>
@@ -203,7 +259,10 @@ export default function About() {
                 sm
                 container
                 justifyContent="center"
-                style={{ flexGrow: 0 }}
+                style={{
+                  flexGrow: 0,
+                  marginBottom: matchesSM ? "1em" : undefined,
+                }}
               >
                 <Grid item>
                   <LazyLoadImage
@@ -215,10 +274,22 @@ export default function About() {
                   />
                 </Grid>
               </Grid>
-              <Grid item md={6} style={{ marginLeft: "5em" }}>
+              <Grid
+                item
+                md={6}
+                style={{
+                  marginLeft: matchesSM ? 0 : matchesMD ? "3em" : "5em",
+                }}
+              >
                 <Grid container direction="column">
                   <Grid item style={{ marginBottom: "1em" }}>
-                    <Typography variant="h2">So, What's Next?</Typography>
+                    <Typography
+                      variant="h2"
+                      align={matchesSM ? "center" : undefined}
+                      style={{ fontSize: matchesXS ? "1.75rem" : undefined }}
+                    >
+                      So, What's Next?
+                    </Typography>
                   </Grid>
                   <Grid item style={{ marginBottom: "1em" }}>
                     <Typography variant="body1">

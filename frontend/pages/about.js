@@ -54,7 +54,7 @@ export default function About() {
         />
         <meta
           property="og:title"
-          content="About Me | Chris Diorior"
+          content="About Me | Chris Diorio"
           key="og:title"
         />
         <meta

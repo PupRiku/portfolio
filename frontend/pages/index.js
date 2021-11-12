@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import { useTheme } from "@mui/material/styles";
-import makeStyles from '@mui/styles/makeStyles';
+import makeStyles from "@mui/styles/makeStyles";
 import Link from "../src/Link";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Grid from "@mui/material/Grid";
@@ -18,7 +18,7 @@ import {
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       marginTop: "3em",
     },
   },
@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: "21.5em",
     marginLeft: "4em",
     marginRight: "1em",
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down("sm")]: {
       marginLeft: 0,
     },
   },
@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 700,
     fontSize: "2.25em",
     color: theme.palette.common.orange,
-    [theme.breakpoints.down('lg')]: {
+    [theme.breakpoints.down("lg")]: {
       fontSize: "1.75em",
     },
   },
@@ -61,10 +61,10 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 15,
     maxWidth: 1000,
     backgroundColor: theme.palette.common.white,
-    [theme.breakpoints.down('lg')]: {
+    [theme.breakpoints.down("lg")]: {
       maxWidth: 800,
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down("md")]: {
       maxWidth: 500,
     },
   },
@@ -141,9 +141,9 @@ export default function Index() {
   const [lifeHover, setLifeHover] = useState(false);
   const [contactHover, setContactHover] = useState(false);
 
-  const matchesMD = useMediaQuery(theme.breakpoints.down('lg'));
-  const matchesSM = useMediaQuery(theme.breakpoints.down('md'));
-  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesMD = useMediaQuery(theme.breakpoints.down("lg"));
+  const matchesSM = useMediaQuery(theme.breakpoints.down("md"));
+  const matchesXS = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
@@ -200,7 +200,7 @@ export default function Index() {
                 </Grid>
               </Grid>
             </Hidden>
-            <Grid container justifyContent='flex-end'>
+            <Grid container justifyContent="flex-end">
               <Grid item>
                 <Typography
                   align={matchesSM ? "center" : "right"}

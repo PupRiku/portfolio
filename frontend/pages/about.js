@@ -1,16 +1,17 @@
 import React from "react";
 import Head from "next/head";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "../src/Link";
-import Hidden from "@material-ui/core/Hidden";
+import Hidden from "@mui/material/Hidden";
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('sm')]: {
       marginTop: "3em",
     },
   },
@@ -29,7 +30,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   title: {
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: "4.25rem",
     },
   },
@@ -39,9 +40,9 @@ export default function About() {
   const classes = useStyles();
   const theme = useTheme();
 
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  const matchesMD = useMediaQuery(theme.breakpoints.down('lg'));
+  const matchesSM = useMediaQuery(theme.breakpoints.down('md'));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
@@ -219,7 +220,7 @@ export default function About() {
                   </Grid>
                 </Grid>
               </Grid>
-              <Hidden smDown>
+              <Hidden mdDown>
                 <Grid
                   item
                   sm

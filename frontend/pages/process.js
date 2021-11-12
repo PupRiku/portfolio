@@ -1,24 +1,25 @@
 import React from "react";
 import Head from "next/head";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 import {
   LazyLoadImage,
   LazyLoadComponent,
 } from "react-lazy-load-image-component";
 import Link from "../src/Link";
-import Hidden from "@material-ui/core/Hidden";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
+import Hidden from "@mui/material/Hidden";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('sm')]: {
       marginTop: "3em",
     },
   },
@@ -37,7 +38,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   title: {
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: "4.25rem",
     },
   },
@@ -54,10 +55,10 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 15,
     maxWidth: 1000,
     backgroundColor: theme.palette.common.white,
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       maxWidth: 800,
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('md')]: {
       maxWidth: 500,
     },
   },
@@ -70,10 +71,10 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#d2c7ff",
       WebkitTransition: "all .25s ease-in-out",
     },
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       maxWidth: 200,
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('md')]: {
       maxWidth: 100,
     },
   },
@@ -106,9 +107,9 @@ export default function Process() {
   const classes = useStyles();
   const theme = useTheme();
 
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  const matchesMD = useMediaQuery(theme.breakpoints.down('lg'));
+  const matchesSM = useMediaQuery(theme.breakpoints.down('md'));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>

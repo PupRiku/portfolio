@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
 import theme from "../src/ui/theme";
 import Header from "../src/ui/Header";
 import Fonts from "../src/ui/Fonts";
@@ -31,33 +31,35 @@ export default function MyApp(props) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <ThemeProvider theme={theme}>
-        <Header
-          value={value}
-          setValue={setValue}
-          lifeIndex={lifeIndex}
-          setLifeIndex={setLifeIndex}
-          experienceIndex={experienceIndex}
-          setExperienceIndex={setExperienceIndex}
-        />
-        <Component
-          {...pageProps}
-          value={value}
-          setValue={setValue}
-          lifeIndex={lifeIndex}
-          setLifeIndex={setLifeIndex}
-          experienceIndex={experienceIndex}
-          setExperienceIndex={setExperienceIndex}
-        />
-        <Footer
-          value={value}
-          setValue={setValue}
-          lifeIndex={lifeIndex}
-          setLifeIndex={setLifeIndex}
-          experienceIndex={experienceIndex}
-          setExperienceIndex={setExperienceIndex}
-        />
-      </ThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <Header
+            value={value}
+            setValue={setValue}
+            lifeIndex={lifeIndex}
+            setLifeIndex={setLifeIndex}
+            experienceIndex={experienceIndex}
+            setExperienceIndex={setExperienceIndex}
+          />
+          <Component
+            {...pageProps}
+            value={value}
+            setValue={setValue}
+            lifeIndex={lifeIndex}
+            setLifeIndex={setLifeIndex}
+            experienceIndex={experienceIndex}
+            setExperienceIndex={setExperienceIndex}
+          />
+          <Footer
+            value={value}
+            setValue={setValue}
+            lifeIndex={lifeIndex}
+            setLifeIndex={setLifeIndex}
+            experienceIndex={experienceIndex}
+            setExperienceIndex={setExperienceIndex}
+          />
+        </ThemeProvider>
+      </StyledEngineProvider>
     </React.Fragment>
   );
 }

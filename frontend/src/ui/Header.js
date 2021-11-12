@@ -1,32 +1,32 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import { makeStyles } from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Button from "@material-ui/core/Button";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
+import makeStyles from "@mui/styles/makeStyles";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Button from "@mui/material/Button";
 import Link from "../Link";
-import MenuItem from "@material-ui/core/MenuItem";
-import { useTheme } from "@material-ui/core/styles";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
-import Paper from "@material-ui/core/Paper";
-import Popper from "@material-ui/core/Popper";
-import MenuList from "@material-ui/core/MenuList";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import Hidden from "@material-ui/core/Hidden";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Grid from "@material-ui/core/Grid";
+import MenuItem from "@mui/material/MenuItem";
+import { useTheme } from "@mui/material/styles";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Grow from "@mui/material/Grow";
+import Paper from "@mui/material/Paper";
+import Popper from "@mui/material/Popper";
+import MenuList from "@mui/material/MenuList";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Hidden from "@mui/material/Hidden";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Grid from "@mui/material/Grid";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -45,10 +45,10 @@ const useStyles = makeStyles(theme => ({
   toolbarMargin: {
     minHeight: "3em",
     marginBottom: "4em",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("lg")]: {
       marginBottom: "4em",
     },
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       marginBottom: "1.5em",
     },
   },
@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
     color: "white",
     height: "6em",
     textTransform: "none",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down("sm")]: {
       height: "5.25em",
     },
   },
@@ -175,8 +175,8 @@ export default function Header(props) {
   };
 
   const handleClose = e => {
-    setAnchorEl(null);
     openExperience ? setOpenExperience(false) : setOpenLife(false);
+    setAnchorEl(null);
   };
 
   function handleListKeyDown(event) {
@@ -276,6 +276,7 @@ export default function Header(props) {
         onChange={handleChange}
         className={classes.tabContainer}
         indicatorColor="primary"
+        textColor="inherit"
       >
         {routes.map((route, index) => (
           <Tab
@@ -603,6 +604,7 @@ export default function Header(props) {
         className={classes.drawerIconContainer}
         onClick={() => setOpenDrawer(!openDrawer)}
         disableRipple
+        size="large"
       >
         <MenuIcon className={classes.drawerIcon} />
       </IconButton>
@@ -764,7 +766,7 @@ export default function Header(props) {
                 </g>
               </svg>
             </Button>
-            <Hidden mdDown>
+            <Hidden lgDown>
               {tabs}
               <Button
                 style={{ marginLeft: "1.5em" }}

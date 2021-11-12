@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "../Link";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Hidden from "@material-ui/core/Hidden";
+import makeStyles from '@mui/styles/makeStyles';
+import Grid from "@mui/material/Grid";
+import Hidden from "@mui/material/Hidden";
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -14,10 +14,10 @@ const useStyles = makeStyles(theme => ({
   adornment: {
     width: "33em",
     verticalAlign: "bottom",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       width: "21em",
     },
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('sm')]: {
       width: "15em",
     },
   },
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   icon: {
     height: "4em",
     width: "4em",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('sm')]: {
       height: "2.5em",
       width: "2.5em",
     },
@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     position: "absolute",
     marginTop: "-6em",
     right: "1.5em",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('sm')]: {
       right: "0.6em",
     },
   },
@@ -58,7 +58,7 @@ export default function Footer(props) {
 
   return (
     <footer className={classes.footer}>
-      <Hidden mdDown>
+      <Hidden lgDown>
         <Grid
           container
           justifyContent="center"

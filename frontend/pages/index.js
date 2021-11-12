@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@mui/material/styles";
+import makeStyles from '@mui/styles/makeStyles';
 import Link from "../src/Link";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import CardHeader from "@material-ui/core/CardHeader";
-import { Hidden } from "@material-ui/core";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import CardHeader from "@mui/material/CardHeader";
+import { Hidden } from "@mui/material";
 import {
   LazyLoadImage,
   LazyLoadComponent,
@@ -17,7 +18,7 @@ import {
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('sm')]: {
       marginTop: "3em",
     },
   },
@@ -25,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: "21.5em",
     marginLeft: "4em",
     marginRight: "1em",
-    [theme.breakpoints.down("xs")]: {
+    [theme.breakpoints.down('sm')]: {
       marginLeft: 0,
     },
   },
@@ -34,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 700,
     fontSize: "2.25em",
     color: theme.palette.common.orange,
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       fontSize: "1.75em",
     },
   },
@@ -60,10 +61,10 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 15,
     maxWidth: 1000,
     backgroundColor: theme.palette.common.white,
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('lg')]: {
       maxWidth: 800,
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('md')]: {
       maxWidth: 500,
     },
   },
@@ -140,9 +141,9 @@ export default function Index() {
   const [lifeHover, setLifeHover] = useState(false);
   const [contactHover, setContactHover] = useState(false);
 
-  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
-  const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  const matchesMD = useMediaQuery(theme.breakpoints.down('lg'));
+  const matchesSM = useMediaQuery(theme.breakpoints.down('md'));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Grid container direction="column" className={classes.mainContainer}>
@@ -214,7 +215,7 @@ export default function Index() {
               </Grid>
             </Grid>
           </Grid>
-          <Hidden smDown>
+          <Hidden mdDown>
             <Grid item md>
               <LazyLoadImage
                 src="/assets/Chris.webp"
@@ -253,7 +254,7 @@ export default function Index() {
           <Grid item>
             <Button
               component={Link}
-              href="/process"
+              href="/portfolio"
               variant="contained"
               className={classes.portfolioButton}
             >

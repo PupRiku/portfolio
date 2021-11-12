@@ -7,6 +7,9 @@ import Button from "@mui/material/Button";
 import Link from "../src/Link";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -33,6 +36,11 @@ const useStyles = makeStyles(theme => ({
       fontSize: "4.25rem",
     },
   },
+  header: {
+    [theme.breakpoints.down("md")]: {
+      fontSize: "2.5rem",
+    },
+  },
   resumeButton: {
     backgroundColor: theme.palette.common.orange,
     color: theme.palette.common.white,
@@ -46,6 +54,29 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       backgroundColor: theme.palette.primary.light,
     },
+  },
+  highlight: {
+    color: theme.palette.common.purple,
+    fontWeight: 700,
+  },
+  summaryCard: {
+    position: "absolute",
+    boxShadow: theme.shadows[10],
+    borderRadius: 15,
+    maxWidth: 1300,
+    backgroundColor: theme.palette.common.white,
+    [theme.breakpoints.down("lg")]: {
+      maxWidth: 800,
+    },
+    [theme.breakpoints.down("md")]: {
+      maxWidth: 500,
+    },
+  },
+  expertiseItem: {
+    ...theme.typography.body1,
+    padding: theme.spacing(1),
+    textAlign: "center",
+    color: theme.palette.secondary,
   },
 }));
 
@@ -86,12 +117,7 @@ export default function Resume() {
         <Typography variant="h1" align="center" className={classes.title}>
           Chris's Résumé
         </Typography>
-        <Grid
-          item
-          container
-          justifyContent="center"
-          style={{ marginBottom: "5em", marginTop: "2em" }}
-        >
+        <Grid item container style={{ marginBottom: "5em", marginTop: "2em" }}>
           <Grid item container justifyContent="center">
             <Grid item>
               <Button
@@ -105,6 +131,55 @@ export default function Resume() {
               </Button>
             </Grid>
           </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          style={{ height: "5em" }}
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Card className={classes.summaryCard}>
+            <CardContent style={{ paddingLeft: 0, paddingRight: 0 }}>
+              <Grid
+                item
+                container
+                style={{
+                  paddingLeft: matchesSM ? "1em" : "3em",
+                  paddingRight: matchesSM ? "1em" : "3em",
+                }}
+              >
+                <Grid item>
+                  <Typography variant="body1" align="center">
+                    Goal driven and ambitious{" "}
+                    <span className={classes.highlight}>UX Design</span>{" "}
+                    professional with extensive experience across{" "}
+                    <span className={classes.highlight}>QA</span> and{" "}
+                    <span className={classes.highlight}>usability testing</span>
+                    . Dynamic leader with track record in developing and
+                    directing{" "}
+                    <span className={classes.highlight}>high-performing</span>{" "}
+                    teams to drive{" "}
+                    <span className={classes.highlight}>innovation</span> using
+                    creative methods. Compelling communicator well versed in{" "}
+                    <span className={classes.highlight}>
+                      engaging key stakeholders, collaborating
+                      cross-functionally, and coaching junior members
+                    </span>
+                    . Strong aptitude for leveraging{" "}
+                    <span className={classes.highlight}>
+                      innovative thinking
+                    </span>{" "}
+                    across various projects while driving{" "}
+                    <span className={classes.highlight}>
+                      user-focused experiences
+                    </span>
+                    .
+                  </Typography>
+                </Grid>
+              </Grid>
+            </CardContent>
+          </Card>
         </Grid>
       </Grid>
     </Grid>

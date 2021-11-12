@@ -175,8 +175,8 @@ export default function Header(props) {
   };
 
   const handleClose = e => {
-    openExperience ? setOpenExperience(false) : setOpenLife(false);
     setAnchorEl(null);
+    openExperience ? setOpenExperience(false) : setOpenLife(false);
   };
 
   function handleListKeyDown(event) {
@@ -322,7 +322,7 @@ export default function Header(props) {
                 >
                   {lifeOptions.map((option, i) => (
                     <MenuItem
-                      key={`${option}${i}`}
+                      key={`${option}${i}lf`}
                       component={Link}
                       href={option.link}
                       classes={{ root: classes.menuItem }}
@@ -373,7 +373,7 @@ export default function Header(props) {
                 >
                   {experienceOptions.map((option, i) => (
                     <MenuItem
-                      key={`${option}${i}`}
+                      key={`${option}${i}ex`}
                       component={Link}
                       href={option.link}
                       classes={{ root: classes.menuItem }}
@@ -441,7 +441,7 @@ export default function Header(props) {
                     {experienceOptions.map(route => (
                       <Grid item>
                         <ListItem
-                          key={`${route}${route.experienceIndex}`}
+                          key={`ac${route}${route.experienceIndex}ex`}
                           divider
                           button
                           component={Link}
@@ -497,7 +497,7 @@ export default function Header(props) {
                     {lifeOptions.map(route => (
                       <Grid item>
                         <ListItem
-                          key={`${route}${route.lifeIndex}`}
+                          key={`ac${route}${route.lifeIndex}lf`}
                           divider
                           button
                           component={Link}
@@ -527,7 +527,7 @@ export default function Header(props) {
               </Accordion>
             ) : (
               <ListItem
-                key={`${route}${route.activeIndex}`}
+                key={`ac${route}${route.activeIndex}`}
                 divider
                 button
                 component={Link}

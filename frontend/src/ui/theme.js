@@ -1,4 +1,4 @@
-import { createTheme, adaptV4Theme } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 
 const diorioOrange = "#C16200";
 const diorioPurple = "#40356F";
@@ -7,8 +7,7 @@ const diorioGrey = "#4D4D4D";
 const diorioBlack = "#0F0F0F";
 const diorioWhite = "#EBEBEB";
 
-const theme = createTheme(
-  adaptV4Theme({
+const theme = createTheme({
     palette: {
       common: {
         orange: diorioOrange,
@@ -70,7 +69,7 @@ const theme = createTheme(
         color: diorioGrey,
       },
     },
-  })
+  }
 );
 
 export default theme;

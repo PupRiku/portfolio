@@ -156,7 +156,7 @@ export default function Resume() {
                     professional with extensive experience across{" "}
                     <span className={classes.highlight}>QA</span> and{" "}
                     <span className={classes.highlight}>usability testing</span>
-                    . Dynamic leader with track record in developing and
+                    . Dynamic leader with a track record in developing and
                     directing{" "}
                     <span className={classes.highlight}>high-performing</span>{" "}
                     teams to drive{" "}

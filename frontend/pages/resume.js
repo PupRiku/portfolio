@@ -13,6 +13,11 @@ import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Tooltip from "@mui/material/Tooltip";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { typography } from "@mui/system";
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -91,6 +96,17 @@ const useStyles = makeStyles(theme => ({
   apps: {
     width: 100,
     height: 100,
+  },
+  accordionTitle: {
+    flexShrink: 0,
+    margin: "auto",
+  },
+  accordionContent: {
+    maxWidth: "77.5em",
+  },
+  accordionStyle: {
+    backgroundColor: theme.palette.common.white,
+    boxShadow: theme.shadows[10],
   },
 }));
 
@@ -451,6 +467,467 @@ export default function Resume() {
                 />
               </Tooltip>
             </Stack>
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          justifyContent="center"
+          style={{ marginBottom: "2em" }}
+        >
+          <Grid item>
+            <Typography variant="h2" className={classes.header}>
+              Experience Highlights
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          justifyContent="center"
+          style={{ marginBottom: "2em" }}
+        >
+          <Grid item style={{ marginBottom: "2em" }}>
+            <Accordion className={classes.accordionStyle}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="exp1-content"
+                id="exp1-header"
+              >
+                <Typography
+                  variant="h4"
+                  className={classes.accordionTitle}
+                  style={{ width: "20em" }}
+                >
+                  University of Wisconsin - Madison
+                  <br />
+                  Madison, WI
+                </Typography>
+                <Typography
+                  variant="h4"
+                  align="center"
+                  className={classes.accordionTitle}
+                  style={{ width: "30em" }}
+                >
+                  Coordinator of Digital Services | Application Administrator II
+                </Typography>
+                <Typography
+                  variant="h4"
+                  align="right"
+                  className={classes.accordionTitle}
+                  style={{ marginRight: "1em", width: "20em" }}
+                >
+                  2018 - Present
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography
+                  variant="body1"
+                  className={classes.accordionContent}
+                >
+                  Orchestrate technology and applications as administrator and
+                  functional lead of four enterprise-level systems for
+                  UW-Madison’s Student Orientation, Advising, and Registration
+                  (SOAR) program. Drive innovation through researching,
+                  recommending, and implementing technology and application
+                  resources including Guidebook, Starfish, and Salesforce.
+                  Facilitate L1 and L2 tech support, acting as key liaison
+                  between IT services and Center for the First-Year Experience
+                  (CFYE). Guide and mentor an undergraduate intern assisting
+                  technology function of SOAR program and related applications.
+                  Ensure streamlined operations across all SOAR session
+                  programs, supporting staff as well as answering student and
+                  parent questions.
+                  <br />
+                  <ul>
+                    <li>
+                      Spearheaded development and improvement initiatives for
+                      four enterprise systems: SOAR Reservation System, SOAR
+                      Advising Module (SAM), Preparing for SOAR, and New Student
+                      To-Do List, used by{" "}
+                      <span className={classes.highlight}>thousands</span> of
+                      students and{" "}
+                      <span className={classes.highlight}>hundreds</span> of
+                      staff members.
+                    </li>
+                    <li>
+                      Functional project lead on creation of new student portal
+                      to curate and centralize applications as well as
+                      communications with students during transition into
+                      UW-Madison.
+                    </li>
+                    <li>
+                      Directed redesign and redevelopment of SOAR Reservation
+                      System as well as SOAR Advising Module, utilizing
+                      innovative technology to address evolving growth and needs
+                      of SOAR program.
+                    </li>
+                    <li>
+                      Managed streamlined transition from in-person orientation
+                      programs to online programs during COVID-19 pandemic.
+                    </li>
+                    <li>
+                      Recognized as Outstanding New OTR (Orientation,
+                      Transition, and Retention) Professional by Region V of
+                      NODA (Association for Orientation, Transition, and
+                      Retention Professionals in Higher Education) in 2020.
+                    </li>
+                  </ul>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
+          <Grid item style={{ marginBottom: "2em" }}>
+            <Accordion className={classes.accordionStyle}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="exp1-content"
+                id="exp1-header"
+              >
+                <Typography
+                  variant="h4"
+                  className={classes.accordionTitle}
+                  style={{ width: "20em" }}
+                >
+                  University of Wisconsin - Madison
+                  <br />
+                  Madison, WI
+                </Typography>
+                <Typography
+                  variant="h4"
+                  align="center"
+                  className={classes.accordionTitle}
+                  style={{ width: "30em" }}
+                >
+                  Graduate Certificate in User Experience Design Student
+                </Typography>
+                <Typography
+                  variant="h4"
+                  align="right"
+                  className={classes.accordionTitle}
+                  style={{ marginRight: "1em", width: "20em" }}
+                >
+                  2019 - 2020
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography
+                  variant="body1"
+                  className={classes.accordionContent}
+                >
+                  Successfully completed program with design and development of
+                  robust prototype, including market and user research, persona
+                  development, as well as low and high-fidelity designs.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
+          <Grid item style={{ marginBottom: "2em" }}>
+            <Accordion className={classes.accordionStyle}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="exp1-content"
+                id="exp1-header"
+              >
+                <Typography
+                  variant="h4"
+                  className={classes.accordionTitle}
+                  style={{ width: "20em" }}
+                >
+                  Raven Software
+                  <br />
+                  Middleton, WI
+                </Typography>
+                <Typography
+                  variant="h4"
+                  align="center"
+                  className={classes.accordionTitle}
+                  style={{ width: "30em" }}
+                >
+                  Senior Quality Assurance Tester
+                  <br />
+                  Quality Assurance Tester
+                </Typography>
+                <Typography
+                  variant="h4"
+                  align="right"
+                  className={classes.accordionTitle}
+                  style={{ marginRight: "1em", width: "20em" }}
+                >
+                  2017 - 2018
+                  <br />
+                  2014 - 2017
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography
+                  variant="body1"
+                  className={classes.accordionContent}
+                >
+                  Managed team of testers through development milestones and
+                  releases of software for various video games. Developed test
+                  cases, content sweeps, and milestone test plans, collaborating
+                  with production teams on deadline and project requirements.
+                  Tested pre-release video games to verify functionality, data
+                  content, performance, usability/playability, as well as
+                  hardware/software compatibility. Produced detailed
+                  documentation on defects utilizing DevTrack and Jira,
+                  distributing findings and actions to design teams.
+                  <br />
+                  <ul>
+                    <li>
+                      Significantly contributed to successful launches of{" "}
+                      <span className={classes.highlight}>six</span> AAA video
+                      games in the <em>Call of Duty</em> franchise, providing
+                      key insights on designs and functions developed.
+                    </li>
+                    <li>
+                      Successfully slashed required team overtime by{" "}
+                      <span className={classes.highlight}>50</span>% by
+                      leveraging strategic time management and creating test
+                      plans for first time success.
+                    </li>
+                    <li>
+                      Headed continuous QA support for ongoing video games with{" "}
+                      <span className={classes.highlight}>millions</span> of
+                      players worldwide, including China-only Free to Play
+                      version called <em>Call of Duty Online</em> with new
+                      content and updates released monthly.
+                    </li>
+                  </ul>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
+          <Grid item style={{ marginBottom: "2em" }}>
+            <Accordion className={classes.accordionStyle}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="exp1-content"
+                id="exp1-header"
+              >
+                <Typography
+                  variant="h4"
+                  className={classes.accordionTitle}
+                  style={{ width: "20em" }}
+                >
+                  Vicarious Visions
+                  <br />
+                  Menands, NY
+                </Typography>
+                <Typography
+                  variant="h4"
+                  align="center"
+                  className={classes.accordionTitle}
+                  style={{ width: "30em" }}
+                >
+                  Senior Quality Assurance Tester
+                  <br />
+                  Quality Assurance Tester
+                </Typography>
+                <Typography
+                  variant="h4"
+                  align="right"
+                  className={classes.accordionTitle}
+                  style={{ marginRight: "1em", width: "20em" }}
+                >
+                  2013
+                  <br />
+                  2012-2013
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography
+                  variant="body1"
+                  className={classes.accordionContent}
+                >
+                  Led testing on new video games prior to launch, ensuring all
+                  specifications and requirements satisfied. Actively engaged in
+                  daily Missions (Levels) Design scrum as well as large
+                  production meetings, distributing important information to
+                  team. Managed evaluation of game reporting metrics
+                  functionality as well as play testing feedback videos and
+                  reports for further fixes and improvements. Identified issues
+                  and ran debugging programs to ensure resolution. Recorded all
+                  defects, creating and distributing reports outlining defects
+                  and processes followed to fix defects. Leveraged knowledge and
+                  expertise to assist software developers in early development
+                  stages, highlighting potential issues, assessing risks, and
+                  resolving issues before launch.
+                  <br />
+                  <ul>
+                    <li>
+                      Spearheaded development of onboarding program for{" "}
+                      <span className={classes.highlight}>20</span> incoming
+                      employees, increasing speed with which new employees
+                      understood tools and procedures for seamless transitions
+                      into roles.
+                    </li>
+                    <li>
+                      Promoted to Senior QA Tester within three months due to
+                      outstanding work ethic, fast-learning capabilities, and
+                      leveraging creative thinking with testing.
+                    </li>
+                    <li>
+                      Actively engaged in successful AAA title launch within the{" "}
+                      <em>Skylanders</em> franchise, ensuring player quality and
+                      functionality expectations met before launch.
+                    </li>
+                  </ul>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
+          <Grid item>
+            <Accordion
+              style={{
+                backgroundColor: theme.palette.common.white,
+                boxShadow: theme.shadows[10],
+              }}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="exp1-content"
+                id="exp1-header"
+              >
+                <Typography
+                  variant="h4"
+                  className={classes.accordionTitle}
+                  style={{ width: "20em" }}
+                >
+                  Rensselaer Polytechnic Institute
+                  <br />
+                  Troy, NY
+                </Typography>
+                <Typography
+                  variant="h4"
+                  align="center"
+                  className={classes.accordionTitle}
+                  style={{ width: "30em" }}
+                >
+                  Human-Computer Interaction Masters Student
+                </Typography>
+                <Typography
+                  variant="h4"
+                  align="right"
+                  className={classes.accordionTitle}
+                  style={{ marginRight: "1em", width: "20em" }}
+                >
+                  2009 - 2012
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography
+                  variant="body1"
+                  className={classes.accordionContent}
+                >
+                  Learned innovative industry theories and procedures utilized
+                  globally in design and software implementation, with
+                  coursework in human-computer interaction combined with theory
+                  in allied areas such as technical communication, human
+                  factors, information design, cognitive science, and computer
+                  science. of Cognitive Modeling and Technical Communication.
+                  Researched and analyzed topics covered in lectures in order to
+                  acquire better understanding of concepts for application after
+                  graduation. Explored fundamental topics, including User
+                  Experience Design, Interactive Data Visualization, Information
+                  Design, User Experience Methods, and Interface Design.
+                  Performed research, led presentations, and designed and
+                  managed group projects.
+                  <br />
+                  <ul>
+                    <li>
+                      Recipient of Founders Award for Excellence in Fall of
+                      2011.
+                    </li>
+                    <li>
+                      Membership Chair for RPI Players from Fall 2010 to Spring
+                      2011.
+                    </li>
+                    <li>
+                      Student Orientation Coordinator, Summer 2009: Led and
+                      supervised team of student advisors to facilitate RPI’s
+                      Orientation programs.
+                    </li>
+                    <li>
+                      Acted as Peer Advisor for Games and Simulation Arts and
+                      Sciences Undergraduate Students.
+                    </li>
+                    <li>
+                      Stage Manager, Director, and Publicity Director for
+                      various theater shows.
+                    </li>
+                    <li>Alpha Psi Omega – Theatrical Honor Society Member.</li>
+                  </ul>
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          justifyContent="center"
+          style={{ marginBottom: "2em" }}
+        >
+          <Grid item>
+            <Typography variant="h2" className={classes.header}>
+              Additional Experience
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          alignItems="center"
+          style={{ marginBottom: "2em" }}
+          direction='column'
+        >
+          <Grid item>
+            <Typography variant="h4">
+              Lecturer - Coun Psy 125 - A Wisconsin Experience Seminar
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="body1">
+              University of Wisconsin - Madison | Madison, WI
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          justifyContent="center"
+          style={{ marginBottom: "2em" }}
+        >
+          <Grid item>
+            <Typography variant="h2" className={classes.header}>
+              Education
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          justifyContent="center"
+          style={{ marginBottom: "2em" }}
+        >
+          <Grid item>
+            <Typography variant="h2" className={classes.header}>
+              Presentations
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid
+          item
+          container
+          justifyContent="center"
+          style={{ marginBottom: "2em" }}
+        >
+          <Grid item>
+            <Typography variant="h2" className={classes.header}>
+              Awards
+            </Typography>
           </Grid>
         </Grid>
       </Grid>

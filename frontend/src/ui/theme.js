@@ -55,7 +55,9 @@ const theme = createTheme({
         fontWeight: 700,
       },
       h4: {
+        fontSize: '1.25rem',
         color: diorioPurple,
+        fontWeight: 700,
       },
       subtitle1: {
         color: diorioGrey,

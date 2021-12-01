@@ -9,6 +9,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
@@ -17,7 +18,6 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { typography } from "@mui/system";
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -107,6 +107,13 @@ const useStyles = makeStyles(theme => ({
   accordionStyle: {
     backgroundColor: theme.palette.common.white,
     boxShadow: theme.shadows[10],
+  },
+  eduCard: {
+    minWidth: "35em",
+    marginLeft: "1em",
+    marginRight: "1em",
+    boxShadow: theme.shadows[10],
+    backgroundColor: theme.palette.common.white,
   },
 }));
 
@@ -881,7 +888,7 @@ export default function Resume() {
           container
           alignItems="center"
           style={{ marginBottom: "2em" }}
-          direction='column'
+          direction="column"
         >
           <Grid item>
             <Typography variant="h4">
@@ -904,6 +911,89 @@ export default function Resume() {
             <Typography variant="h2" className={classes.header}>
               Education
             </Typography>
+          </Grid>
+          <Grid
+            item
+            container
+            direction="row"
+            justifyContent="center"
+            style={{ marginBottom: "2em", marginTop: "2em" }}
+          >
+            <Grid item>
+              <Card className={classes.eduCard}>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image="assets/uwmadison.webp"
+                />
+                <CardContent>
+                  <Typography
+                    variant="h5"
+                    style={{
+                      fontWeight: "700",
+                      color: theme.palette.common.purple,
+                    }}
+                  >
+                    University of Wisconsin - Madison
+                  </Typography>
+                  <Typography variant="h5" fontSize="1.2rem">
+                    Graduate Certificate in User-Experience Design
+                  </Typography>
+                  <Typography>Fall 2019 - Summer 2020</Typography>
+                  <Typography>Madison, WI</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item>
+              <Card className={classes.eduCard}>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image="assets/rpi.webp"
+                />
+                <CardContent>
+                  <Typography
+                    variant="h5"
+                    style={{
+                      fontWeight: "700",
+                      color: theme.palette.common.purple,
+                    }}
+                  >
+                    Rensselaer Polytechnic Institute
+                  </Typography>
+                  <Typography variant="h5" fontSize="1.2rem">
+                    Master's of Science in Human-Computer Interaction
+                  </Typography>
+                  <Typography>Fall 2009 - Spring 2012</Typography>
+                  <Typography>Troy, NY</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid item>
+              <Card className={classes.eduCard}>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image="assets/rpi.webp"
+                />
+                <CardContent>
+                  <Typography
+                    variant="h5"
+                    style={{
+                      fontWeight: "700",
+                      color: theme.palette.common.purple,
+                    }}
+                  >
+                    Rensselaer Polytechnic Institute
+                  </Typography>
+                  <Typography variant="h5" fontSize="1.2rem">
+                    Bachelor's of Science in Games & Simulation Arts & Sciences
+                  </Typography>
+                  <Typography>Fall 2007 - Spring 2012</Typography>
+                  <Typography>Troy, NY</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
           </Grid>
         </Grid>
         <Grid

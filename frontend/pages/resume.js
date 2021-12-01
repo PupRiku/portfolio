@@ -10,6 +10,7 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import CardActions from "@mui/material/CardActions";
 import Divider from "@mui/material/Divider";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
@@ -110,6 +111,13 @@ const useStyles = makeStyles(theme => ({
   },
   eduCard: {
     minWidth: "35em",
+    marginLeft: "1em",
+    marginRight: "1em",
+    boxShadow: theme.shadows[10],
+    backgroundColor: theme.palette.common.white,
+  },
+  presentationCard: {
+    minWidth: "25em",
     marginLeft: "1em",
     marginRight: "1em",
     boxShadow: theme.shadows[10],
@@ -1006,6 +1014,119 @@ export default function Resume() {
             <Typography variant="h2" className={classes.header}>
               Presentations
             </Typography>
+          </Grid>
+          <Grid
+            item
+            container
+            direction="row"
+            justifyContent="center"
+            style={{ marginBottom: "2em", marginTop: "2em" }}
+          >
+            <Grid item>
+              <Card className={classes.eduCard}>
+                <CardMedia
+                  component="img"
+                  height="300"
+                  image="assets/presentation_gps.webp"
+                />
+                <CardContent>
+                  <Typography
+                    variant="h5"
+                    style={{
+                      fontWeight: "700",
+                      color: theme.palette.common.purple,
+                    }}
+                  >
+                    The New Student GPS:
+                    <br />A Digital Experience to Ease Transition
+                  </Typography>
+                  <Typography variant="h5" fontSize="1.2rem">
+                    NODA Annual Conference | Houston, TX
+                  </Typography>
+                  <Typography>October 2019</Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    size="large"
+                    component={Link}
+                    href="/files/slides_gps.pdf"
+                    target="_blank"
+                  >
+                    Go To Slides
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item>
+              <Card className={classes.eduCard}>
+                <CardMedia
+                  component="img"
+                  height="300"
+                  image="assets/presentation_sprint.webp"
+                />
+                <CardContent>
+                  <Typography
+                    variant="h5"
+                    style={{
+                      fontWeight: "700",
+                      color: theme.palette.common.purple,
+                    }}
+                  >
+                    SPRINT! Tackle big problems in a week<br />(with  Phyllis Treige, Jess Jones & Tamra Dagnon)
+                  </Typography>
+                  <Typography variant="h5" fontSize="1.2rem">
+                    IT Professionals Conference | Madison, WI
+                  </Typography>
+                  <Typography>June 2019</Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    size="large"
+                    component={'a'}
+                    href="https://itproconf.wisc.edu/2019/05/24/sprint-tackle-big-problems-in-a-week/"
+                    target="_blank"
+                  >
+                    Go To Listing
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+            <Grid item>
+              <Card className={classes.presentationCard}>
+                <CardMedia
+                  component="img"
+                  height="300"
+                  image="assets/presentation_no_ux.webp"
+                />
+                <CardContent>
+                  <Typography
+                    variant="h5"
+                    style={{
+                      fontWeight: "700",
+                      color: theme.palette.common.purple,
+                    }}
+                  >
+                    No (User) Experience Necessary:
+                    <br />
+                    Digital Experiences by Non-Designers
+                  </Typography>
+                  <Typography variant="h5" fontSize="1.2rem">
+                    NODA Region V Conference | Des Moines, IA
+                  </Typography>
+                  <Typography>March 2019</Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    size="large"
+                    component={Link}
+                    href="/files/slides_no_ux.pdf"
+                    target="_blank"
+                  >
+                    Go To Slides
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
           </Grid>
         </Grid>
         <Grid
